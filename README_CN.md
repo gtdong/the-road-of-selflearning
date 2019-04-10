@@ -1,4 +1,5 @@
 # 自学之路
+[English](https://github.com/gtdong/the-road-of-selflearning/blob/master/README.md)
 ## 愿景
 这个项目将会记录我学习python的过程
 ## 内容
