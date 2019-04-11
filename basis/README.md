@@ -7,15 +7,8 @@
 
 
 ## 什么是计算机语言
-
-```
-1. 编程语言：与计算机进行沟通的语言 
-```
-[维基百科](https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80) 
-```
-2. 编程：奴役计算机，让计算机安装指定的方式帮助我们完成特定的需求
-```
-[维基百科](https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1)
+* [编程语言](https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80)   
+* [编程](https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1)
 
 
 ## 计算机语言的发展
