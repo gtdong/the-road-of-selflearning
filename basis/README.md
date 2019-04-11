@@ -34,14 +34,16 @@
 1.编译型：类似于百度翻译，执行效率高
 2.解释型：类似于同声传译，开发效率高 （python: 后出现的能使用前出现的(资源)，反过来不行）
 ```
-* [编译型语言与解释型语言的区别](https://blog.csdn.net/zhu_xun/article/details/16921413)
+[编译型语言与解释型语言的区别](https://blog.csdn.net/zhu_xun/article/details/16921413)
 
-
+# Python
+[什么是python?](https://zh.wikipedia.org/wiki/Python)
 ## python交互方式
 
 ```
 1.实时交互：提前进入python解释器环境
 2.文件交互：将文件交给python解释器执行（效率高）
+python文件以.py结尾
 ```
 
 
