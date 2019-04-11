@@ -12,11 +12,15 @@
 
 
 ## 计算机语言的发展
-
+### 发展
 ```
 机器语言(01代码指令)---> 汇编语言(助记词 MOV CMP CF)---> 高级语言(java 、C、python)
-
-对比：  
+```
+* [机器语言](https://zh.wikipedia.org/wiki/%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80)
+* [汇编语言](https://zh.wikipedia.org/wiki/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80)
+* [高级语言](https://zh.wikipedia.org/wiki/%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80)
+### 对比
+``` 
 1.机器语言，与机器直接交互，执行效率最高
 2.汇编语言，执行效率较高，没有机器语言效率高，开发效率比机器语言高
 3.高级语言，执行效率最低，开发效率最高 （重点）
