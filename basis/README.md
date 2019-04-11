@@ -1,6 +1,6 @@
 ## 学习方法
 
-```python
+```
 3w1h：what | why | where | how
 
 ```
