@@ -1,8 +1,8 @@
 ## 学习方法
 
-`
+```
 3w1h：what | why | where | how
-`
+```
 
 
 
