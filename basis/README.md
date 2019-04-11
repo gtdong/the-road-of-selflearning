@@ -1,12 +1,8 @@
 ## 学习方法
 
 ```python
-'''
-重点：熟练度
-
 3w1h：what | why | where | how
 
-'''
 ```
 
 
