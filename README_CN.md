@@ -3,6 +3,7 @@
 ## 愿景
 这个项目将会记录我学习python的过程
 ## 内容
-* [基础](https://github.com/gtdong/the-road-of-selflearning/tree/master/basis)
-* [数据类型](https://github.com/gtdong/the-road-of-selflearning/tree/master/data-type)
-* [字符编码和文件处理](https://github.com/gtdong/the-road-of-selflearning/tree/master/encoding-and-flie_operation)
+* [Basis](https://github.com/michaeldong1024/the-road-of-selflearning/tree/master/basis)
+* [Data-type](https://github.com/michaeldong1024/the-road-of-python/tree/master/data-type)
+* [Encoding-and-file](https://github.com/michaeldong1024/the-road-of-python/tree/master/encoding-and-flie_operation)
+* [Function](https://github.com/michaeldong1024/the-road-of-python/tree/master/function)
