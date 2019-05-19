@@ -9,3 +9,5 @@ This repository will record my python learning process.
 * [Function](https://github.com/michaeldong1024/the-road-of-python/tree/master/function)
 * [Generator-and-iterator](https://github.com/michaeldong1024/the-road-of-python/tree/master/generator-and-iterator)
 * [Modules-and-Packages](https://github.com/michaeldong1024/the-road-of-python/tree/master/Modules-and-packages)
+* [atm](https://github.com/michaeldong1024/the-road-of-python/tree/master/atm)
+* [log-and-re](https://github.com/michaeldong1024/the-road-of-python/tree/master/log-and-re)
