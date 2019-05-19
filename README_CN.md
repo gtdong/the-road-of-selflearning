@@ -9,3 +9,6 @@
 * [函数](https://github.com/michaeldong1024/the-road-of-python/tree/master/function)
 * [装饰器和迭代器](https://github.com/michaeldong1024/the-road-of-python/tree/master/geneartor-and-iterator)
 * [模块和包](https://github.com/michaeldong1024/the-road-of-python/tree/master/Modules-and-packages)
+* [atm](https://github.com/michaeldong1024/the-road-of-python/tree/master/atm)
+* [日志和正则](https://github.com/michaeldong1024/the-road-of-python/tree/master/log-and-re)
+* [面向对象](https://github.com/michaeldong1024/the-road-of-python/tree/master/object-or)
