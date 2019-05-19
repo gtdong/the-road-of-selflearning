@@ -11,4 +11,4 @@
 * [模块和包](https://github.com/michaeldong1024/the-road-of-python/tree/master/Modules-and-packages)
 * [atm](https://github.com/michaeldong1024/the-road-of-python/tree/master/atm)
 * [日志和正则](https://github.com/michaeldong1024/the-road-of-python/tree/master/log-and-re)
-* [面向对象](https://github.com/michaeldong1024/the-road-of-python/tree/master/object-or)
+* [面向对象](https://github.com/michaeldong1024/the-road-of-python/tree/master/object-oriented)
