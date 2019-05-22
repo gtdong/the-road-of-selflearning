@@ -3,12 +3,12 @@
 ## Mission
 This repository will record my python learning process.
 ## Contents
-* [Basis](basis)
-* [Data-type](data-type)
-* [Encoding-and-file](encoding-and-flie_operation)
-* [Function](function)
-* [Generator-and-iterator](generator-and-iterator)
-* [Modules-and-Packages](Modules-and-packages)
-* [atm](atm)
-* [log-and-re](log-and-re)
-* [object-oriented](object-oriented)
+* [1.Basis](basis)
+* [2.Data-type](data-type)
+* [3.Encoding-and-file](encoding-and-flie_operation)
+* [4.Function](function)
+* [5.Generator-and-iterator](generator-and-iterator)
+* [6.Modules-and-Packages](Modules-and-packages)
+* [7.atm](atm)
+* [8.log-and-re](log-and-re)
+* [9.object-oriented](object-oriented)
