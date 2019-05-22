@@ -1,5 +1,0 @@
-[2019-05-11 15:34:24,451][MainThread:21100][task_id:user][common.py:36][INFO][什么什么用户登录了一次!]
-[2019-05-11 15:37:48,783][MainThread:18804][task_id:user][user_interface.py:26][INFO][大刚注册成功]
-[2019-05-11 15:41:41,215][MainThread:20752][task_id:bank][bank_interface.py:25][INFO][tank提现5000元成功!]
-[2019-05-11 15:42:14,943][MainThread:20752][task_id:shop][shop_interface.py:20][INFO][tank添加购物车成功]
-[2019-05-15 22:27:19,434][MainThread:4510684608][task_id:user][user_interface.py:26][INFO][dgt注册成功]
