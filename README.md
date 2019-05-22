@@ -1,14 +1,14 @@
 # the-road-of-selflearning
-[中文版](https://github.com/gtdong/the-road-of-selflearning/blob/master/README_CN.md)
+[中文版](README_CN.md)
 ## Mission
 This repository will record my python learning process.
 ## Contents
-* [Basis](https://github.com/michaeldong1024/the-road-of-selflearning/tree/master/basis)
-* [Data-type](https://github.com/michaeldong1024/the-road-of-python/tree/master/data-type)
-* [Encoding-and-file](https://github.com/michaeldong1024/the-road-of-python/tree/master/encoding-and-flie_operation)
-* [Function](https://github.com/michaeldong1024/the-road-of-python/tree/master/function)
-* [Generator-and-iterator](https://github.com/michaeldong1024/the-road-of-python/tree/master/generator-and-iterator)
-* [Modules-and-Packages](https://github.com/michaeldong1024/the-road-of-python/tree/master/Modules-and-packages)
-* [atm](https://github.com/michaeldong1024/the-road-of-python/tree/master/atm)
-* [log-and-re](https://github.com/michaeldong1024/the-road-of-python/tree/master/log-and-re)
-* [object-oriented](https://github.com/michaeldong1024/the-road-of-python/tree/master/object-oriented)
+* [Basis](basis)
+* [Data-type](data-type)
+* [Encoding-and-file](encoding-and-flie_operation)
+* [Function](function)
+* [Generator-and-iterator](generator-and-iterator)
+* [Modules-and-Packages](Modules-and-packages)
+* [atm](atm)
+* [log-and-re](log-and-re)
+* [object-oriented](object-oriented)
