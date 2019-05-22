@@ -9,6 +9,6 @@
 * [4.函数](function)
 * [5.装饰器和迭代器](geneartor-and-iterator)
 * [6.模块和包](Modules-and-packages)
-* [7.atm](atm)
+* [7.项目一--atm](atm)
 * [8.日志和正则](log-and-re)
 * [9.面向对象](object-oriented)
