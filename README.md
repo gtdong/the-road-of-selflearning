@@ -9,6 +9,6 @@ This repository will record my python learning process.
 * [4.Function](function)
 * [5.Generator-and-iterator](generator-and-iterator)
 * [6.Modules-and-Packages](Modules-and-packages)
-* [7.atm](atm)
+* [7.Project1--atm](atm)
 * [8.log-and-re](log-and-re)
 * [9.object-oriented](object-oriented)
