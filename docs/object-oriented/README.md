@@ -27,8 +27,7 @@
 ### 3.引子
 
 ```python
-# 需求
-s = 'abc'  # => ['a', 'b', 'c']
+需求:将'abc'转换成['a','b','c']
 # 解决方案
 # re.findall()  list初始化方法
 # for循环append
