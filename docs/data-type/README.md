@@ -130,12 +130,36 @@ for s in s10:
 
 4. center | ljust | rjust | zfill：按位填充
 语法：center(所占位数, '填充符号')
-
+s = '12'
+print(s.center(10,'3'))
+    3333123333
+    
+print(s.ljust(10,'3'))
+    1233333333
+    
+print(s.rjust(10,'3'))
+    3333333312
+    
+    
 5. expandtabs：规定\t所占空格数
 
 6. captialize | title | swapcase：首字母大写 | 单词首字母大写 | 大小写反转
 
 7. isdigit | isdecimal | isnumeric：数字判断
+isgigit 检测字符串是否只有数字组成
+isdecimal 检测字符串是否只包含十进制字符
+isnumeric 检测字符串是否只由数字组成。
+这种方法是只针对unicode对象。
+
+    str = u"this2009";  
+    print str.isnumeric();
+        
+        False
+    str = u"23443434";
+    print str.isnumeric();
+
+
+        False
 
 8. isalnum | isalpha：是否由字母数字组成 | 由字母组成
 
@@ -151,6 +175,9 @@ for s in s10:
 '''
 了解：字符串运算
 '''
+字符串操作常见方法
+https://www.runoob.com/python3/python3-string.html
+
 ```
 
 
