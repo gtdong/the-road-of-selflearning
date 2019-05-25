@@ -81,6 +81,7 @@ print(s6.__len__())
 'D:\\python36\\python3.exe'.split('\\', 1)
 
 10.纯数字判断
+Python isdigit() 方法检测字符串是否只由数字组成
 语法：isdigit()
 '18'.isdigit()
 
