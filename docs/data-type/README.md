@@ -33,7 +33,6 @@ d = 2 + 3j
 ## 字符串类型
 
 ```python
-''' *****
 1. 单行字符串
 s1 = 'abc'
 ss1 = "xyz"
@@ -94,7 +93,6 @@ while count < len(s10):
 	
 for s in s10:
 	print(s)
-'''
 
 '''
 总结：
