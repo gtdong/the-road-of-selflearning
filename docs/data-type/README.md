@@ -148,15 +148,17 @@ isdecimal 检测字符串是否只包含十进制字符
 isnumeric 检测字符串是否只由数字组成。
 这种方法是只针对unicode对象。
 
-    str = u"this2009";  
-    print str.isnumeric();
-        
-        False
-    str = u"23443434";
-    print str.isnumeric();
+str = u"this2009";  
+print str.isnumeric();
 
+#结果
+False
 
-        False
+str = u"23443434";
+print str.isnumeric();
+
+#结果
+False
 
 8. isalnum | isalpha：是否由字母数字组成 | 由字母组成
 
