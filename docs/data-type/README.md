@@ -5,7 +5,6 @@
 ## 数字类型
 
 ```python
-'''
 1. 整型
 a1 = 10
 a2 = int(20)
@@ -34,7 +33,6 @@ d = 2 + 3j
 ## 字符串类型
 
 ```python
-''' *****
 1. 单行字符串
 s1 = 'abc'
 ss1 = "xyz"
@@ -45,8 +43,8 @@ second line
 last line"""
 
 3. 字符串嵌套
-i) 单、双、三引号直接可以相互嵌套
-ii) 同类型引号直接嵌套需要转义：\'  |  \"
+#i) 单、双、三引号直接可以相互嵌套
+#ii) 同类型引号直接嵌套需要转义：\'  |  \"
 
 4. 索引取值
 s4 = 'oldboy'
@@ -95,7 +93,6 @@ while count < len(s10):
 	
 for s in s10:
 	print(s)
-'''
 
 '''
 总结：
@@ -103,7 +100,6 @@ for s in s10:
 2. 为不可变类：s = 'xyz'
 '''
 
-''' ***
 1. lstrip | rstrip：左 | 右 取留白
 
 2. rsplit：从右开始拆分
@@ -141,7 +137,8 @@ print(s.rjust(10,'3'))
     3333333312
     
     
-5. expandtabs：规定\t所占空格数
+5. expandtabs：
+#规定\t所占空格数
 
 6. captialize | title | swapcase：首字母大写 | 单词首字母大写 | 大小写反转
 
@@ -151,15 +148,17 @@ isdecimal 检测字符串是否只包含十进制字符
 isnumeric 检测字符串是否只由数字组成。
 这种方法是只针对unicode对象。
 
-    str = u"this2009";  
-    print str.isnumeric();
-        
-        False
-    str = u"23443434";
-    print str.isnumeric();
+str = u"this2009";  
+print str.isnumeric();
 
+#结果
+False
 
-        False
+str = u"23443434";
+print str.isnumeric();
+
+#结果
+False
 
 8. isalnum | isalpha：是否由字母数字组成 | 由字母组成
 
@@ -170,7 +169,6 @@ isnumeric 检测字符串是否只由数字组成。
 11. isspace：是否是空白字符
 
 12. istitle：是否为单词首字母大写格式
-'''
 
 '''
 了解：字符串运算
@@ -185,7 +183,6 @@ https://www.runoob.com/python3/python3-string.html
 ## 列表
 
 ```python
-''' *****
 1. 声明：可以包含不同类型数据，可以嵌套，[]
 
 2. 索引取值：支持正向反向
@@ -211,15 +208,12 @@ list = [1, 2, 3, 4, 5]
 语法：sort(reverse=True)
 
 '''
-
-'''
 总结：
 1. 可以存放多个值：list = [1, 2, 3]
 2. 为可变类型：list.append(4)
 3. 有序存储：排列的索引取值
 '''
 
-''' ***
 1. copy：复制
 
 2. clear：清空
@@ -229,11 +223,8 @@ list = [1, 2, 3, 4, 5]
 4. extend：添加多个值(参数为可迭代对象)
 
 5. index：查找索引
-'''
 
-'''
 了解：列表的运算
-'''
 ```
 
 
@@ -241,18 +232,14 @@ list = [1, 2, 3, 4, 5]
 ## 元组
 
 ```python
-'''
 1. 声明：可以包含不同类型数据，可以嵌套，()
 
 2. 索引取值：支持正向反向
-'''
 
-'''
 总结：
 1. 可以存放多个值：t = (1, 2, 3)
 2. 为不可变类型
 3. 有序存储：排列的索引取值
-'''
 ```
 
 
@@ -260,7 +247,6 @@ list = [1, 2, 3, 4, 5]
 ## 字典：
 
 ```python
-'''
 1. 声明：key为不可变类型数据，value可以为任意类型，{}
 d1 = {'name': 'Owen'}
 d2 = dict(name='Owen')
@@ -292,14 +278,11 @@ iv) items()
 
 8. 设置默认
 语法：setdefault(key, defalutValue)
-'''
 
-'''
 总结：
 1. 可以存放多个值：dic = {'name': 'Owen', age: 18}
 2. 为不可变类型
 3. 无序存储：安装key取值
-'''
 ```
 
 
@@ -307,12 +290,10 @@ iv) items()
 ## 集合
 
 ```python
-'''
 1. 声明：
 s = {1, 2, 3, 4, 5}
 
 2. 集合运算
 &交集 | |合集 | ^对称差集 | -差集 | 比较
-'''
 ```
 
