@@ -7,7 +7,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 LOG_PATH = os.path.join(BASE_DIR, 'log')
 lottery_log_path = os.path.join(LOG_PATH, 'record.log')
-SHEVLE_PATH = os.path.join(BASE_DIR, 'db')
+SHEVLE_PATH = os.path.join(BASE_DIR, 'database')
 
 if not os.path.exists(LOG_PATH):
     os.mkdir(LOG_PATH)

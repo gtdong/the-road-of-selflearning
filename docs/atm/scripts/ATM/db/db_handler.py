@@ -29,7 +29,7 @@ def save(user_dic):
 def select(user):  # tank
 
     db_path = settings.DB_PATH
-    user_path = '%s/%s.json' % (db_path, user)  # db/tank.json
+    user_path = '%s/%s.json' % (db_path, user)  # database/tank.json
 
     if os.path.exists(user_path):
         with open(user_path, 'r', encoding='utf-8') as f:

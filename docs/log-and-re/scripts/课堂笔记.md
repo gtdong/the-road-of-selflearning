@@ -1,24 +1,8 @@
 ## 复习
 
 ```python
-'''
-ATM:
-	-- start.py
-		BASE_DIR = os.path.dirname(__file__)
-		sys.path.append(BASE_DIR)
-	-- conf
-	-- lib
-	-- core
-	-- log
-	-- db
-	-- interface
-	
-模块：一系列功能的集合体
-# 1.编译形成pyc 2.执行模块，产生名称空间存放模块的名字 3.在导包的文件中产生一个名字指向模块的名称空间
+database
 
-包：一系列模块的集合体
-import 包名  # => 走的就是包中__init__.py
-'''
 
 '''
 时间

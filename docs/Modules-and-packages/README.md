@@ -299,17 +299,7 @@ from part7.c import m3
 ## 项目目录分析
 
 ```python
-'''
-bin: 可执行文件
-conf：项目的配置文件
-core：项目核心文件，主要的业务逻辑代码
-db：数据库相关文件
-interface：接口文件
-lib：项目的依赖库
-log：日志文件
-static：静态资源
-tmp：临时文件
-'''
+database
 
 
 # 如何将项目所在目录添加至环境变量

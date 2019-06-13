@@ -3,6 +3,7 @@
 ## Mission
 This repository will record my python learning process.
 ## Contents
+* [Projects](docs/projects)
 * [1.Basis](docs/basis)
 * [2.Data-type](docs/data-type)
 * [3.Encoding-and-file](docs/encoding-and-flie_operation)
