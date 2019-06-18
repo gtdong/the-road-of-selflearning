@@ -1,17 +1,18 @@
-# the-road-of-selflearning
-[中文版](README_CN.md)
-## Mission
-This repository will record my python learning process.
-## Contents
-* [Projects](docs/projects)
-* [1.Basis](docs/basis)
-* [2.Data-type](docs/data-type)
-* [3.Encoding-and-file](docs/encoding-and-flie_operation)
-* [4.Function](docs/function)
-* [5.Generator-and-iterator](docs/generator-and-iterator)
-* [6.Modules-and-Packages](docs/Modules-and-packages)
-* [7.Project1--atm](docs/atm)
-* [8.log-and-re](docs/log-and-re)
-* [9.object-oriented](docs/object-oriented)
-* [10.Inheritance-polymorphism-encapsulation-and-metaclasses](docs/Inheritance-polymorphism-encapsulation-and-metaclasses)
-* [11.Network-programming](docs/network-programming)
+# 自学之路
+[English](README_EN.md)
+## 愿景
+这个项目将会记录我学习python的过程
+## 内容
+* [项目](docs/projects)
+* [1.基础](docs/basis)
+* [2.数据类型](docs/data-type)
+* [3.字符编码和文件](docs/encoding-and-flie_operation)
+* [4.函数](docs/function)
+* [5.装饰器和迭代器](geneartor-and-iterator)
+* [6.模块和包](docs/Modules-and-packages)
+* [7.项目一--atm](docs/atm)
+* [8.日志和正则](docs/log-and-re)
+* [9.面向对象](docs/object-oriented)
+* [10.多态-继承-封装和元类](docs/Inheritance-polymorphism-encapsulation-and-metaclasses)
+* [11.网络编程](docs/network-programming)
+* [12.mysql-1](docs/mysql-1)
