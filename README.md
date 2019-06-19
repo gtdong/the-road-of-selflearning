@@ -1,5 +1,4 @@
 # 自学之路
-[English](README_EN.md)
 ## 愿景
 这个项目将会记录我学习python的过程
 ## 内容
