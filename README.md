@@ -1,4 +1,4 @@
-# 自学之路
+# The road of python
 这个项目将会记录我学习python的过程
 ## 内容
 * [项目](docs/projects)
