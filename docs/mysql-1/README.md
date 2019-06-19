@@ -32,7 +32,7 @@ MariaDB(MySQL的一个分支)，SAP
 key-value数据库的主要特点是具有极高的并发读写性能  
 	Key-value数据库是一种以键值对存储数据的一种数据库，类似Java中的map。可以将整个数据库理解为一个大的map，
 每个键都会对应一个唯一的值。  
-主流代表为Redis， Amazon DynamoDB， Memcached，Microsoft Azure Cosmos DB和Hazelcast
+**主流代表为：** Redis， Amazon DynamoDB， Memcached，Microsoft Azure Cosmos DB和Hazelcast
 
 **面向海量数据访问的面向文档数据库：**  
 这类数据库的主要特点是在海量的数据中可以快速的查询数据文档存储通常使用内部表示法，可以直接在应用程序中处理，
