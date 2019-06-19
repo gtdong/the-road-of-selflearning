@@ -9,25 +9,25 @@
 需要工具软件来帮助我们取完成
 这个软件就是数据库软件
 	
------》 数据库就是一个帮助我们进行数据管理的软件（工具）
+-----: 数据库就是一个帮助我们进行数据管理的软件（工具）
 ```
 
 ## 二. 数据库的分类
 ```python
-	a. 关系型数据库
-			1. 有约束
-			2. 基于硬盘存储的
+a. 关系型数据库
+		1. 有约束
+		2. 基于硬盘存储的
 			
-			具体实现的软件：
-				MySQL（免费），SQLServer（微软 c# .net）, Oracle(甲骨文， java)， SQLlite, DB2 
-				mariadb, pgsql
+		具体实现的软件：
+			MySQL（免费），SQLServer（微软 c# .net）, Oracle(甲骨文， java)， SQLlite, DB2 
+			mariadb, pgsql
 				
-	b. 非关系型数据库
-			1. 没有约束   {“key”--->value, "key"---> "bdshabd"}
-			2. 基于内存存储的
+b. 非关系型数据库
+		1. 没有约束   {“key”---:value, "key"---: "bdshabd"}
+		2. 基于内存存储的
 			
-			具体实现的软件：
-				Memcache(03), redis(10年 微博), mongodb
+		具体实现的软件：
+			Memcache(03), redis(10年 微博), mongodb
 ```
 	
 ## 三. MySQL数据库
