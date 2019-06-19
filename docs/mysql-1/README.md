@@ -342,23 +342,49 @@ windows:
 		和where条件的区别;
 		where 对表中原生的列进行删选
 		having 对分组之后的结果进行二次删选
+	
+	联表查询：
+		select score.student_id ,student.sname from score left join student
+		on score.student_id = student.sid and number > 60;
 
 ```
 
-#### 外键:
-```shell
+#### 主键和外键
+
+主键、外键和索引的区别？
+
+主键：
+	唯一标识一条记录，不能有重复的，不允许为空
+	用来保证数据完整性
+	
+外键
+	表的外键是另一表的主键, 外键可以有重复的, 可以是空值
+	
+	用来和其他表建立联系用的
+
+个数：
+
+主键只能有一个
+
+一个表可以有多个外键
+
+一个表可以有多个惟一索引
 一对多
 
 缺点：
 1. 重复太厉害
-
 2. 如果部门名称过长的话， 重复去写的话， 占用空间太厉害
 
 方法：
 通过新建一张表来解决
 
+||主键|外键|
+|-|-|-|
+|定义|唯一标识一条记录，不能有重复的，不允许为空|表的外键是另一表的主键, 外键可以有重复的, 可以是空值|
+|作用|用来保证数据完整性|用来和其他表建立联系用的|
+|个数|主键只能有一个|一个表可以有多个外键|
 
-
+```shell
 create table department(
 id int auto_increment primary key, 
 name varchar(32) not null default ''
@@ -373,17 +399,7 @@ name varchar(32) not null default '',
 age int not null default 1,
 depart_id int, 
 constraint fk_userinfo_depart foreign key(depart_id) references department(id)，
-constraint fk_userinfo_depart foreign key(depart_id) references department(id)，
-constraint fk_userinfo_depart foreign key(depart_id) references department(id)，
-constraint fk_userinfo_depart foreign key(depart_id) references department(id)，
-)engine=Innodb charset=utf8;
-
-insert into userinfo (name, age, depart_id) values ('zzzz', 12, 3);	
-insert into userinfo (name, age, depart_id) values ('kkkk', 23, 1);	
-insert into userinfo (name, age, depart_id) values ('hhhh', 45, 2);	
-insert into userinfo (name, age, depart_id) values ('bbbb', 56, 3);	
-
-insert into userinfo (name, age, depart_id) values ('zzzz', 12, 32);		
+)engine=Innodb charset=utf8;	
 
 
 ##ps:
