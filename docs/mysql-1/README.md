@@ -69,51 +69,44 @@ key-value数据库的主要特点是具有极高的并发读写性能
 ## 三. MySQL数据库
 	
 ### a. 架构
-```shell
-    MySQL服务端：
-        socketserver服务端
-        接收来自客户端的指令， 执行， 然后将结果返回
+* MySQL服务端：socketserver服务端，接收来自客户端的指令， 执行， 然后将结果返回
     
-    MySQL客户端：
-        socket client客户端
-        发送指令到服务端
-```
+* MySQL客户端：socket client客户端，发送指令到服务端
 ### b. 安装：
 ```shell
-    http://dev.mysql.com/downloads/mysql/
-    
-    1.zip：
-        压缩包 （MySQL的客户端和服务端已经开发好， 然后打包给你）
-        
-    2.exe文件或者msi文件：
-        点点点 （下一步）
+http://dev.mysql.com/downloads/mysql/
 
-    
-    3.目录结构：
-        bin : 
-            MySQLd : 启动MySQL服务端的
-            MySQL  : 连接服务端
-        data: 
-            存放数据文件
+1.zip：
+压缩包 （MySQL的客户端和服务端已经开发好， 然后打包给你）
 
-    4.具体的安装：
-        mac：
-            brew install mysql	
-        
-        windows:
-            a.解压
-            
-            b.进入到bin
-            
-            c.mysqld  (默认一个用户名root)
-            
-            d.mysql -uroot -p 直接回车 再回车
-            
-            e：mysql>输入指令
-        
-        环境变量：
-            右键计算机】--》【属性】--》【高级系统设置】--》【高级】--》【环境变量】--》
-            【在第二个内容框中找到 变量名为Path 的一行，双击】 --> 添加
+2.exe文件或者msi文件：
+点点点 （下一步）
+
+3.目录结构：
+bin : 
+    MySQLd : 启动MySQL服务端的
+    MySQL  : 连接服务端
+data: 
+    存放数据文件
+
+4.具体的安装：
+mac：
+    brew install mysql	
+
+windows:
+    a.解压
+
+    b.进入到bin
+
+    c.mysqld  (默认一个用户名root)
+
+    d.mysql -uroot -p 直接回车 再回车
+
+    e：mysql>输入指令
+
+环境变量：
+    右键计算机】--》【属性】--》【高级系统设置】--》【高级】--》【环境变量】--》
+    【在第二个内容框中找到 变量名为Path 的一行，双击】 --> 添加
     
 ```
 ### c. mysql的操作:
@@ -125,9 +118,10 @@ key-value数据库的主要特点是具有极高的并发读写性能
     数据行
 
 大量的SQL指令（语句）
+```
 
-数据库：
-
+* 数据库：
+```shell
     增
 	语句：
 	    create database 数据库名;
@@ -142,9 +136,9 @@ key-value数据库的主要特点是具有极高的并发读写性能
 
     使用数据库：
 	use 数据库名(db2);
-
-数据表：
-
+```
+* 数据表：
+```shell
     增
 	指令：
 	    create table 表名(
@@ -287,13 +281,10 @@ key-value数据库的主要特点是具有极高的并发读写性能
 
     查
 	show tables;
+```
+* 数据行：
 
-
-
-
-
-数据行：
-
+```shell
     增
 	指令：	
 	    insert into 表名(列1，列2，...., 列n) values (‘值1’, '值2'， ..., '值n');
@@ -410,9 +401,10 @@ key-value数据库的主要特点是具有极高的并发读写性能
 		where 对表中原生的列进行删选
 		having 对分组之后的结果进行二次删选
 
+```
 
-
-外键：（**********************************）
+* 外键:
+```shell
     一对多
 
     缺点：
