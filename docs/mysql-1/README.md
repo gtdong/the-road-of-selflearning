@@ -20,7 +20,7 @@
 &#160; &#160; &#160; &#160;**关键字：** 一组可以唯一标识元组的属性，数据库中常称为主键，由一个或多个列组成  
 &#160; &#160; &#160; &#160;**关系模式：** 指对关系的描述。其格式为：关系名(属性1，属性2， ... ... ，属性N)，在数据库中成为表结构
 
-**当今十大主流的关系型数据库：**
+&#160; &#160; &#160; &#160;**当今十大主流的关系型数据库：**
 Oracle，Microsoft SQL Server，MySQL，PostgreSQL，DB2，icrosoft Access， SQLite，Teradata，
 MariaDB(MySQL的一个分支)，SAP
 	
@@ -49,7 +49,7 @@ MariaDB(MySQL的一个分支)，SAP
 据的，擅长以列为单位读入数据。这类数据库想解决的问题就是传统数据库存在可扩展性上的缺陷，这类数据库可以适应数据量
 的增加以及数据结构的变化，将数据存储在记录中，能够容纳大量动态列。由于列名和记录键不是固定的，并且由于记录可能有
 数十亿列，因此可扩展性存储可以看作是二维键值存储。  
-主流代表为：Cassandra，HBase，Microsoft Azure Cosmos DB，Datastax Enterprise和Accumulo
+&#160; &#160; &#160; &#160;主流代表为：Cassandra，HBase，Microsoft Azure Cosmos DB，Datastax Enterprise和Accumulo
 	
 ### c.关系型与非关系型数据库的比较:
 **1.成本：** Nosql数据库简单易部署，基本都是开源软件，不需要像使用Oracle那样花费大量成本购买使用，相比关系型数据库
