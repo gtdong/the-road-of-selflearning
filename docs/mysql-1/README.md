@@ -22,19 +22,19 @@
 &#160; &#160; &#160; &#160;当今十大主流的关系型数据库：Oracle，Microsoft SQL Server，MySQL，PostgreSQL，DB2，icrosoft Access， SQLite，Teradata，MariaDB(MySQL的一个分支)，SAP
 ### b. 非关系型数据库  
 &#160; &#160; &#160; &#160;非关系型数据库都是针对某些特定的应用需求出现的，因此，对于该类应用，具有极高的性能。依据结构化方法以及应用场合的
-不同，主要分为以下几类：	
+不同，主要分为以下几类：  
 **面向高性能并发读写的key-value数据库:**  
 &#160; &#160; &#160; &#160;key-value数据库的主要特点是具有极高的并发读写性能  
 Key-value数据库是一种以键值对存储数据的一种数据库，类似Java中的map。可以将整个数据库理解为一个大的map，
 每个键都会对应一个唯一的值。  
-&#160; &#160; &#160; &#160;主流代表为： Redis， Amazon DynamoDB， Memcached，Microsoft Azure Cosmos DB和Hazelcast		
+&#160; &#160; &#160; &#160;主流代表为： Redis， Amazon DynamoDB， Memcached，Microsoft Azure Cosmos DB和Hazelcast  
 **面向海量数据访问的面向文档数据库：**  
 &#160; &#160; &#160; &#160;这类数据库的主要特点是在海量的数据中可以快速的查询数据文档存储通常使用内部表示法，可以直接在应用程序中处理，
 主要是JSON。JSON文档也可以作为纯文本存储在键值存储或关系数据库系统中。
-主流代表为MongoDB，Amazon DynamoDB，Couchbase，Microsoft Azure Cosmos DB和CouchDB	
+主流代表为MongoDB，Amazon DynamoDB，Couchbase，Microsoft Azure Cosmos DB和CouchDB  
 **面向搜索数据内容的搜索引擎：**  
 &#160; &#160; &#160; &#160;搜索引擎是专门用于搜索数据内容的NoSQL数据库管理系统。主要是用于对海量数据进行近实时的处理和分析处理，可用
-于机器学习和数据挖掘主流代表为Elasticsearch，Splunk，Solr，MarkLogic和Sphinx	
+于机器学习和数据挖掘主流代表为Elasticsearch，Splunk，Solr，MarkLogic和Sphinx  
 **面向可扩展性的分布式数据库:**  
 &#160; &#160; &#160; &#160;这类数据库的主要特点是具有很强的可拓展性普通的关系型数据库都是以行为单位来存储数据的，擅长以行为单位的读入
 处理，比如特定条件数据的获取。因此，关系型数据库也被成为面向行的数据库。相反，面向列的数据库是以列为单位来存储数
