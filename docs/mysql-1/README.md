@@ -359,14 +359,6 @@ windows:
 |作用|用来保证数据完整性|用来和其他表建立联系用的|
 |个数|主键只能有一个|一个表可以有多个外键|
 
-
-缺点：
-1. 重复太厉害
-2. 如果部门名称过长的话， 重复去写的话， 占用空间太厉害
-
-方法：
-通过新建一张表来解决
-
 ```shell
 create table department(
 id int auto_increment primary key, 
@@ -374,7 +366,6 @@ name varchar(32) not null default ''
 )engine=Innodb charset=utf8;
 
 insert into department (name) values ('公关部'), ('前台部'), ('保安部'), ('xxxx');
-
 
 create table userinfo(
 id int auto_increment primary key, 
