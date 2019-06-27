@@ -325,7 +325,7 @@ pymysql操作数据库：
 			mysqldump
 
 
-事
+事务
 
 ```
 
