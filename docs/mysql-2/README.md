@@ -1,5 +1,5 @@
 #### 外键的变种：
-		
+```shell
 		1.唯一索引：
 			create table yyy(
 				id int,
@@ -98,9 +98,9 @@
 					3. 变量名和等号之间 要加空格
 					
 					4. SQL语句是否有嵌套
-						
-	pymysql
-		
+```				
+### d.pymysql
+```shell
 		安装： pip3 install pymysql
 		
 		create table userinfo (
@@ -110,7 +110,7 @@
 		)engine=Innodb charset=utf8;
 		
 		
-### pymysql操作数据库：
+  pymysql操作数据库：
 		
 			1. conn = pymysql.conn 链接数据库
 			2. cursor = con.cursor()
@@ -389,7 +389,7 @@
 	
 	前端
 	
-
+```shell
 
 
 
