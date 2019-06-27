@@ -363,4 +363,7 @@ depart_id int,
 constraint fk_userinfo_depart foreign key(depart_id) references department(id)，
 )engine=Innodb charset=utf8;	
 
+为已经创建好的表添加外键
+alter table userinfo add constaint 外键名（fk_userinfo_department) ...
+
 ```

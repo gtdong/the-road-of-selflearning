@@ -1,13 +1,14 @@
 #### 外键的变种：
 ```shell
 1.唯一索引：
+    用来约束某一列的值,让某一列的值不重复
 	create table yyy(
 		id int,
 		num int,
 		unique u_name (num) ,
 		unique u_id_name (id, num)  ### 联合唯一索引   1,1   1,2
 	)engine=Innodb charset=utf8;
-
+   联合唯一索引，约束两列的值
 
 
 2.一对多：
@@ -25,7 +26,8 @@
 		3     zekai 23     1
 
 3.一对一：
-
+    一个用户只能有一个url
+    
 	userinfo
 
 		id   name     age 
@@ -41,7 +43,8 @@
 				
 
 4.多对多
-
+    需求：求root用户名下有多少台机器
+        求机器属于多少个用户
 	userinfo			
 		id	name	age	
 		1	root1	23	
@@ -113,7 +116,11 @@ create table userinfo (
 pymysql操作数据库：
 
 	1. conn = pymysql.conn 链接数据库
-	2. cursor = con.cursor()
+	2. cursor = con.cursor()默认查询结果仪元祖显示
+	    (1, '男', 1, '理解')
+	   cursor = con.cusor(cursor=pymysql.cursors.DictCursor)
+	   结果以字典显示
+	   {'sid': 1, 'gender': '男', 'class_id': 1, 'sname': '理解'}
 	3. cursor.execute(sql语句)
 	查询
 		4. cursor.fetchone() # 取一行数据
