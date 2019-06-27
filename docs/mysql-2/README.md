@@ -331,9 +331,6 @@ pymysql操作数据库：
 		备份：
 			mysqldump
 
-
-事务
-
 ```
 
 
