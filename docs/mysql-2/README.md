@@ -1,7 +1,4 @@
-
-今日内容：
-	
-	一、外键的变种：
+#### 外键的变种：
 		
 		1.唯一索引：
 			create table yyy(
@@ -113,7 +110,7 @@
 		)engine=Innodb charset=utf8;
 		
 		
-		pymysql操作数据库：
+### pymysql操作数据库：
 		
 			1. conn = pymysql.conn 链接数据库
 			2. cursor = con.cursor()
