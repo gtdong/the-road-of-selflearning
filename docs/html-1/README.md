@@ -72,51 +72,61 @@ keywords和description用于提高网站在搜索引擎中的排名
 	h1 , h2, h3,...h6 : 变大 变粗
 
 无序列表：
-	<ul type='circle'>
-		<li>123</li>
-		<li>内容</li>
-		<li>456</li>
-		<li>789</li>
-	</ul>
-	type属性：disc(实心圆点)(默认)、circle(空心圆圈)、square(实心方块)
+
+
+<ul type='circle'>
+	<li>123</li>
+	<li>内容</li>
+	<li>456</li>
+	<li>789</li>
+</ul>
+	
+type属性：disc(实心圆点)(默认)、circle(空心圆圈)、square(实心方块)
 
 
 
 有序列表：
-	<ol type="i">
-		<li>123</li>
-		<li>内容</li>
-		<li>456</li>
-		<li>789</li>
-	</ol>
-	type编号类型，默认为整数。可选（1、A、a、Ⅰ、i）
+
+
+<ol type="i">
+	<li>123</li>
+	<li>内容</li>
+	<li>456</li>
+	<li>789</li>
+</ol>
+	
+type编号类型，默认为整数。可选（1、A、a、Ⅰ、i）
 
 
 
 
 超链接：
-	<!--超链接-->
-	<a href="http://www.baidu.com" target="_blank">调到百度</a>
-	<a href="./aaa.html">跳到aaa</a>
+
+
+<!--超链接-->
+<a href="http://www.baidu.com" target="_blank">调到百度</a>
+<a href="./aaa.html">跳到aaa</a>
 							
-	href: 要跳转的资源地址
-	target: _blank : 新开一个页面跳转
+href: 要跳转的资源地址
+target: _blank : 新开一个页面跳转
 
 div和span元素：
-	a. 作用是需要和CSS配合使用的
-	b. 块级标签 和 行内标签：
-		块级标签： 是要独占一行
-			div， p， h1---h6, ul ol
-		行内标签：	占自己内容的宽度
-			span, a, img
+
+    a. 作用是需要和CSS配合使用的
+    b. 块级标签 和 行内标签：
+	    块级标签： 是要独占一行
+		    div， p， h1---h6, ul ol
+	    行内标签： 占自己内容的宽度
+		    span, a, img
 
 img:
+
 	
-	<img src="./my.jpeg" width="200px" height="100px"/>
-
-
-						
+<img src="./my.jpeg" width="200px" height="100px"/>
+				
 表格：
+
+
 <table border="1px">
 <!--        thead ： 表头-->
 <thead>
@@ -159,7 +169,9 @@ align： center  left right
 
 
 
-form表单：			
+form表单：		
+
+
 <!--单行文本输入框-->
 <input type="text"/>  
 
