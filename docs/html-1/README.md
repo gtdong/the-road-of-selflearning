@@ -27,11 +27,18 @@
 ```html
 <!--整体结构-->
 <!DOCTYPE html>
-<html>
-<head>头部描述信息</head>
-<body>真实的内容</body>
+<html lang="en">
+<head>头部描述信息
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+真实的内容
+</body>
 </html>
+```
 
+```html
 <!DOCTYPE html>： 解释器 html5
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -44,9 +51,11 @@ seo：
 <meta name="keywords" content="开发者,博客园,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,技术社区" />
 <meta name="description" content="博客园是一个面向开发者的知识分享社区。自创建以来，博客园一直致力并专注于为开发者打造一个纯净的技术交流社区，推动并帮助开发者通过互联网分享知识，从而让更多开发者从中受益。博客园的使命是帮助开发者用代码改变世界。" />
 
+keywords和description用于提高网站在搜索引擎中的排名
+
 <title>Title</title>
-<link /> 欠
-<script></script> 欠
+<link /> 
+<script></script> 
 						
 ```
 
