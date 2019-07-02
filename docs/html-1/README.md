@@ -9,60 +9,46 @@
 ## html
 
 
-				介绍：
-					- 20个左右的标签
-					- 相当于人体的骨架
-					
-					- 浏览器认识的一组规则 
-					- 浏览器执行的时候， 从上到下依次解释执行 （浏览器中html解释器）
-					
-					- 学习20个左右的规则
-				
-				编写html代码：
-					- 文件后缀建议以.html结尾
-				
-				运行：
-					1.pycharm打开网页
-					2.本地找到网页， 打开即可看到效果
-				
-				标签：
-					
-					整体的结构：
-	
-						
+介绍：  
+	- 20个左右的标签  
+	- 相当于人体的骨架  
+	- 浏览器认识的一组规则   
+	- 浏览器执行的时候， 从上到下依次解释执行 （浏览器中html解释器）  
+	- 学习20个左右的规则  
+
+编写html代码：  
+	- 文件后缀建议以.html结尾  
+
+运行：  
+	1.pycharm打开网页  
+	2.本地找到网页， 打开即可看到效果  
+标签：
 
 ```html
+<!DOCTYPE html>
 <html>
-						<head>头部描述信息</head>
-						<body>真实的内容</body>
-					</html>
-					
-					<!DOCTYPE html>： 解释器 html5
-				
-					<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd"> ： 解释器： html4
-						head中的标签：
-							meta描述网页元信息：
-								<meta charset="UTF-8">  ： 字符编码
+<head>头部描述信息</head>
+<body>真实的内容</body>
+</html>
+
+<!DOCTYPE html>： 解释器 html5
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd"> ： 解释器： html4
+head中的标签：
+meta描述网页元信息：
+<meta charset="UTF-8">  ： 字符编码
 
 seo： 
-								<meta name="keywords" content="开发者,博客园,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,技术社区" />
-								<meta name="description" content="博客园是一个面向开发者的知识分享社区。自创建以来，博客园一直致力并专注于为开发者打造一个纯净的技术交流社区，推动并帮助开发者通过互联网分享知识，从而让更多开发者从中受益。博客园的使命是帮助开发者用代码改变世界。" />
+<meta name="keywords" content="开发者,博客园,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,技术社区" />
+<meta name="description" content="博客园是一个面向开发者的知识分享社区。自创建以来，博客园一直致力并专注于为开发者打造一个纯净的技术交流社区，推动并帮助开发者通过互联网分享知识，从而让更多开发者从中受益。博客园的使命是帮助开发者用代码改变世界。" />
 
-						<title>Title</title>
-						<link /> 欠
-						<script></script> 欠
+<title>Title</title>
+<link /> 欠
+<script></script> 欠
 						
-					分类：
 ```
 
-								seo： 
-									<meta name="keywords" content="开发者,博客园,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,技术社区" />
-									<meta name="description" content="博客园是一个面向开发者的知识分享社区。自创建以来，博客园一直致力并专注于为开发者打造一个纯净的技术交流社区，推动并帮助开发者通过互联网分享知识，从而让更多开发者从中受益。博客园的使命是帮助开发者用代码改变世界。" />
-	
-							<title>Title</title>
-							<link /> 欠
-							<script></script> 欠
 							
 						分类：
 h1
