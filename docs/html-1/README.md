@@ -111,6 +111,7 @@ div和span元素：
 			span, a, img
 
 img:
+	
 	<img src="./my.jpeg" width="200px" height="100px"/>
 
 
@@ -160,21 +161,29 @@ align： center  left right
 
 form表单：			
 <!--单行文本输入框-->
-<input type="text"/>     
+<input type="text"/>  
+
 <!--密码输入框-->	
-<input type="password"/>          
+<input type="password"/>   
+
 <!--复选框-->	
 <input type="checkbox" checked='checked'/>    
- <!--单选框-->	
+
+<!--单选框-->	
 <input type="radio"/>		
-  <!--提交按钮-->
+
+<!--提交按钮-->
 <input type="submit" value='提交'/>	
-  <!--重置按钮-->	
+
+<!--重置按钮-->	
 <input type="reset" value='重置'/>	
- <!--普通按钮-->
+
+<!--普通按钮-->
 <input type="button" value=“普通按钮”/>	
- <!--隐藏按钮-->
+
+<!--隐藏按钮-->
 <input type="hidden" value=“隐藏按钮”/>	
+
 <!--文本选择框-->	
 <input type="file"/>				   
 ```
