@@ -57,124 +57,122 @@ keywords和description用于提高网站在搜索引擎中的排名
 <link /> 
 <script></script> 
 						
+```			
+```html
+分类：  
+	单闭合标签：  
+		eg: <meta charset="UTF-8">   
+	双闭和标签：  
+		eg: <title>Title</title>  
+
+字体以及排版标签：
+	<p></p>   ： 段落标签
+	<br/> ： 换行标签
+	<hr/> ： 华丽丽的分割线
+	h1 , h2, h3,...h6 : 变大 变粗
+
+无序列表：
+	<ul type='circle'>
+		<li>123</li>
+		<li>内容</li>
+		<li>456</li>
+		<li>789</li>
+	</ul>
+	type属性：disc(实心圆点)(默认)、circle(空心圆圈)、square(实心方块)
+
+
+
+有序列表：
+	<ol type="i">
+		<li>123</li>
+		<li>内容</li>
+		<li>456</li>
+		<li>789</li>
+	</ol>
+	type编号类型，默认为整数。可选（1、A、a、Ⅰ、i）
+
+
+
+
+超链接：
+	<!--超链接-->
+	<a href="http://www.baidu.com" target="_blank">调到百度</a>
+	<a href="./aaa.html">跳到aaa</a>
+							
+	href: 要跳转的资源地址
+	target: _blank : 新开一个页面跳转
+
+div和span元素：
+	a. 作用是需要和CSS配合使用的
+	b. 块级标签 和 行内标签：
+		块级标签： 是要独占一行
+			div， p， h1---h6, ul ol
+		行内标签：	占自己内容的宽度
+			span, a, img
+
+img:
+	<img src="./my.jpeg" width="200px" height="100px"/>
+
+
+						
+表格：
+<table border="1px">
+<!--        thead ： 表头-->
+<thead>
+<!--           tr： 一行数据-->
+	<tr>
+<!--                td: 单元格 写具体的内容-->
+		<td>ID</td>
+		<td>名称</td>
+		<td>年龄</td>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>1</td>
+		<td>zekai</td>
+		<td>18</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>zekai2</td>
+		<td>18</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>zekai3</td>
+		<td>18</td>
+	</tr>
+</tbody>
+
+</table>
+
+tr: 一行数据
+td： 具体的单元格数据内容
+th: 讲表头的内容加粗
+
+border： 表格加边框
+width： 表格的宽度
+height： 高度
+align： center  left right
+
+
+
+form表单：			
+
+text	单行文本输入框	<input type="text"/>
+password	密码输入框	<input type="password"/>
+checkbox	复选框	<input type="checkbox" checked='checked'/>
+radio	单选框	<input type="radio"/>
+submit	提交按钮	<input type="submit" value='提交'/>
+reset	重置按钮	<input type="reset" value='重置'/>
+button	普通按钮	<input type="button" value=“普通按钮”/>
+hidden	隐藏按钮	<input type="hidden" value=“隐藏按钮”/>
+file	文本选择框	<input type="file"/>
 ```
+## css：
+- 样式  
+- 相当于穿一件华丽的衣服  
 
-							
-						分类：
-h1
-							单闭合标签：
-								<meta charset="UTF-8"> 
-							双闭和标签：
-								<title>Title</title>
-							
-						字体以及排版标签：
-							<p></p>   ： 段落标签
-							<br/> ： 换行标签
-							<hr/> ： 华丽丽的分割线
-							h1 , h2, h3,...h6 : 变大 变粗
-						
-						无序列表：
-							<ul type='circle'>
-								<li>123</li>
-								<li>内容</li>
-								<li>456</li>
-								<li>789</li>
-							</ul>
-							type属性：disc(实心圆点)(默认)、circle(空心圆圈)、square(实心方块)
-
-
-​							
-​						有序列表：
-​							<ol type="i">
-​								<li>123</li>
-​								<li>内容</li>
-​								<li>456</li>
-​								<li>789</li>
-​							</ol>
-​							type编号类型，默认为整数。可选（1、A、a、Ⅰ、i）
-
-
-​						
-​						
-​						超链接：
-​							<!--超链接-->
-​							<a href="http://www.baidu.com" target="_blank">调到百度</a>
-​							<a href="./aaa.html">跳到aaa</a>
-​							
-							href: 要跳转的资源地址
-							target: _blank : 新开一个页面跳转
-							
-						div和span元素：
-							a. 作用是需要和CSS配合使用的
-							b. 块级标签 和 行内标签：
-								块级标签： 是要独占一行
-									div， p， h1---h6, ul ol
-								行内标签：	占自己内容的宽度
-									span, a, img
-						
-						img:
-							<img src="./my.jpeg" width="200px" height="100px"/>
-
-
-​						
-​						表格：
-​							 <table border="1px">
-​						<!--        thead ： 表头-->
-​								<thead>
-​						<!--           tr： 一行数据-->
-​									<tr>
-​						<!--                td: 单元格 写具体的内容-->
-​										<td>ID</td>
-​										<td>名称</td>
-​										<td>年龄</td>
-​									</tr>
-​								</thead>
-​								<tbody>
-​									<tr>
-​										<td>1</td>
-​										<td>zekai</td>
-​										<td>18</td>
-​									</tr>
-​									<tr>
-​										<td>2</td>
-​										<td>zekai2</td>
-​										<td>18</td>
-​									</tr>
-​									<tr>
-​										<td>3</td>
-​										<td>zekai3</td>
-​										<td>18</td>
-​									</tr>
-​								</tbody>
-​	
-							</table>
-						
-						tr: 一行数据
-						td： 具体的单元格数据内容
-						th: 讲表头的内容加粗
-						
-						border： 表格加边框
-						width： 表格的宽度
-						height： 高度
-						align： center  left right
-
-
-​						
-​						form表单：
-​							
-							text	单行文本输入框	<input type="text"/>
-							password	密码输入框	<input type="password"/>
-							checkbox	复选框	<input type="checkbox" checked='checked'/>
-							radio	单选框	<input type="radio"/>
-							submit	提交按钮	<input type="submit" value='提交'/>
-							reset	重置按钮	<input type="reset" value='重置'/>
-							button	普通按钮	<input type="button" value=“普通按钮”/>
-							hidden	隐藏按钮	<input type="hidden" value=“隐藏按钮”/>
-							file	文本选择框	<input type="file"/>
-				
-			css：
-				- 样式
-				- 相当于穿一件华丽的衣服
-				
-			javascript （js）
-				- 相当于让人动起
+## javascript （js） 
+- 相当于让人动起来
