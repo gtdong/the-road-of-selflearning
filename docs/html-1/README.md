@@ -83,8 +83,6 @@ keywords和description用于提高网站在搜索引擎中的排名
 	
 type属性：disc(实心圆点)(默认)、circle(空心圆圈)、square(实心方块)
 
-
-
 有序列表：
 
 
@@ -96,9 +94,6 @@ type属性：disc(实心圆点)(默认)、circle(空心圆圈)、square(实心�
 </ol>
 	
 type编号类型，默认为整数。可选（1、A、a、Ⅰ、i）
-
-
-
 
 超链接：
 
@@ -166,8 +161,6 @@ border： 表格加边框
 width： 表格的宽度
 height： 高度
 align： center  left right
-
-
 
 form表单：		
 
