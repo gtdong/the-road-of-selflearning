@@ -25,7 +25,7 @@
 标签：
 
 ```html
-<!--整体结构-- />
+<!--整体结构/>
 <!DOCTYPE html>
 <html>
 <head>头部描述信息</head>
