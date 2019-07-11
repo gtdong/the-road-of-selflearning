@@ -188,94 +188,67 @@ align： center  left right
 
 #### http的两种常见方式
 ```
-            get / post 
-            
-            get方式:
-               - form表单中, method如果不写, 默认是get方式, 还可以method='get'
-               缺点:
-                  - 传输的内容明文 , 不太安全
-                  - 浏览器对url的长度有限制 (chrom 限制4096个字节 其他限制1024)
-               
-               http底层:
-                  请求头:
-                     GET / HTTP/1.1
-                     Host: localhost:8000/?username=zekai&pwd=123qwe
-                     Connection: keep-alive
-                     Cache-Control: max-age=0
-                     Upgrade-Insecure-Requests: 1
-                     User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
-                     Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
-                     Accept-Encoding: gzip, deflate, br
-                     Accept-Language: zh-CN,zh;q=0.9
-                     Cookie: Pycharm-ed91cad7=93847e52-e290-42ae-ac89-b08da95066ed
-               
-               
-            post方式:
-               - form表单中, method必须指定为 method=post
-               优点:
-                  
-               
-               http底层:
-                  请求头:
-                     POST / HTTP/1.1
-                     Host: localhost:8000
-                     Connection: keep-alive
-                     Cache-Control: max-age=0
-                     Upgrade-Insecure-Requests: 1
-                     User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
-                     Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
-                     Accept-Encoding: gzip, deflate, br
-                     Accept-Language: zh-CN,zh;q=0.9
-                     Cookie: Pycharm-ed91cad7=93847e52-e290-42ae-ac89-b08da95066ed
-
-                  请求体:
-                     username=zekai&pwd=123qwe
-                  
-         属性:
-            value: 默认值
-            placeholder : html5 的规则  提示语句
-         
-         默认选中的属性:
-            select:
-               selected
-            checkbox / radio:
-               checked
-
-         
-         ps:
-            当一个中有“上传文件域”，必须指定MIME类型enctype=“multipart/form-data”>，否则无法上传文件上传文件域，只在method=“post”下才有效
-               
-            type=hidden :  提交一些不想让用户看到的东西到后台,  比如说: token, id 
+get / post 
+    
+    get方式:
+       - form表单中, method如果不写, 默认是get方式, 还可以method='get'
+       缺点:
+          - 传输的内容明文 , 不太安全
+          - 浏览器对url的长度有限制 (chrom 限制4096个字节 其他限制1024)
+       
+       http底层:
+          请求头:
+             GET / HTTP/1.1
+             Host: localhost:8000/?username=zekai&pwd=123qwe
+             Connection: keep-alive
+             Cache-Control: max-age=0
+             Upgrade-Insecure-Requests: 1
+             User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+             Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+             Accept-Encoding: gzip, deflate, br
+             Accept-Language: zh-CN,zh;q=0.9
+             Cookie: Pycharm-ed91cad7=93847e52-e290-42ae-ac89-b08da95066ed
+       
+       
+    post方式:
+       - form表单中, method必须指定为 method=post
+       优点:
+          
+       
+       http底层:
+          请求头:
+             POST / HTTP/1.1
+             Host: localhost:8000
+             Connection: keep-alive
+             Cache-Control: max-age=0
+             Upgrade-Insecure-Requests: 1
+             User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+             Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+             Accept-Encoding: gzip, deflate, br
+             Accept-Language: zh-CN,zh;q=0.9
+             Cookie: Pycharm-ed91cad7=93847e52-e290-42ae-ac89-b08da95066ed
+    
+          请求体:
+             username=zekai&pwd=123qwe
+          
+    属性:
+    value: 默认值
+    placeholder : html5 的规则  提示语句
+    
+    默认选中的属性:
+    select:
+       selected
+    checkbox / radio:
+       checked
+    
+    
+    ps:
+    当一个中有“上传文件域”，必须指定MIME类型enctype=“multipart/form-data”>，否则无法上传文件上传文件域，只在method=“post”下才有效
+       
+type=hidden :  提交一些不想让用户看到的东西到后台,  比如说: token, id 
 ```
 
 #### 例子
-
-<form action='url地址' method='get/post'>
-    文本框: <input type='text' name='username'>
-    密码框: <input type='password' name='pwd'>
-    复选框: <input type='checkbox' name='hobby'>  足球
-           <input type='checkbox' name='hobby'>  篮球
-           <input type='checkbox' name='hobby'>  羽毛球
-    单选框: <input type='radio' name='gender'> 男
-           <input type='radio' name='gender'> 女
-    性别: <input type="radio" name="gender" value="1" checked>男
-         <input type="radio" name="gender" value="0">女
-         <input type="file" >
-         <input type="hidden" name="token" value="dsadnsajdnskandksandskankdsandsjakndsa" /><br>
-         <select name="city" >
-             <option value="bj">北京</option>
-             <option value="tj" selected="selected">天津</option>
-             <option value="hb">河北</option>
-             <option value="sd">山东</option>
-             <option value="nm">内蒙</option>
-          </select><br>
-<textarea cols="50" rows="30" name="content">
-</textarea>
-    普通按钮: <input type='button' value='普通按钮'>
-    提交按钮: <input type='submit' value='提交'>
-    重置按钮: <input type='reset' value='重置'>
-</form>
-
 ```html
 <form action='url地址' method='get/post'>
     文本框: <input type='text' name='username'>
@@ -297,9 +270,7 @@ align： center  left right
              <option value="sd">山东</option>
              <option value="nm">内蒙</option>
           </select><br>
-
         <textarea cols="50" rows="30" name="content">
-
         </textarea>
     普通按钮: <input type='button' value='普通按钮'>
     提交按钮: <input type='submit' value='提交'>
@@ -307,9 +278,3 @@ align： center  left right
 </form>
 				   
 ```
-## css：
-- 样式  
-- 相当于穿一件华丽的衣服  
-
-## javascript （js） 
-- 相当于让人动起来
