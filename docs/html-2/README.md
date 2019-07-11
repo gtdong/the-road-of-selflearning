@@ -12,7 +12,7 @@
     布局以及样式
       
 ### 3. css的三种引入方式:
-         
+```html
     a. 行内样式
        直接在标签中写入
        <div style="background-color: red; font-size: 25px">helloworld</div>
@@ -46,6 +46,7 @@
                background-color: black;
                font-size: 25px
             }
+   ```
    ### 4.选择器:
          
          选择器: 作用域  会对此选择器发生作用
