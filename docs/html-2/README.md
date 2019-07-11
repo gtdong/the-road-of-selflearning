@@ -48,7 +48,7 @@
             }
    ```
    ### 4.选择器:
-         
+   ```html
          选择器: 作用域  会对此选择器发生作用
                
          div{
@@ -137,8 +137,9 @@
                * {color:green;}
             html:
                 <h1 id="show1" class="show" style="color:gray;">优先级测试</h1>
+```
 ### 段落(文本)属性和边框以及背景属性
-
+```html
     1. 边框:
             border: 1px solid red;
             如果你不知道你所占的div的大小的时候, 可以使用border
@@ -259,7 +260,7 @@
             border-radius: 50% : 图像变圆角
             &nbsp 空格
 
-
+```
 
 
 
