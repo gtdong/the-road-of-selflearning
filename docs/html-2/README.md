@@ -4,48 +4,48 @@
 - 相当于穿一件华丽的衣服  
 
 ### 1.布局方式:
-         a. table方式布局
-         b. div + table 结合着布局
-         c. div + css 进行布局
+    a. table方式布局
+    b. div + table 结合着布局
+    c. div + css 进行布局
       
 ### 2. css的概念:
-         布局以及样式
+    布局以及样式
       
 ### 3. css的三种引入方式:
          
-         a. 直接在标签中写入 行内样式
-            <div style="background-color: red; font-size: 25px">helloworld</div>
+    a. 行内样式
+       直接在标签中写入
+       <div style="background-color: red; font-size: 25px">helloworld</div>
             
-            缺点:
-               1. css样式过长
-               2. 样式和内容混合, 不便于后期的维护
-         b. 内部样式
-            css的样式写在head标签中间
+       缺点:
+          1. css样式过长
+          2. 样式和内容混合, 不便于后期的维护
+          
+    b. 内部样式
+       css的样式写在head标签中间
+
+       <style type="text/css">
+            选择器 {
+               (属性)background-color: (属性值)red;
+             }
+            选择器: 作用域  会对此选择器发生作用
+
+            div{
+               background-color: red;
+               font-size: 25px
+            }
+       </style>
+                   
+    c. 外部样式
+       将css写入到一个单独的文件中, 然后在html中直接引入
             
-            <style type="text/css">
-               选择器 {
-                  (属性)background-color: (属性值)red;
-               }
-               选择器: 作用域  会对此选择器发生作用
-               
-               div{
-                  background-color: red;
-                  font-size: 25px
-               }
-            </style>
-            
-            
-         c. 外部样式
-   
-            将css写入到一个单独的文件中, 然后在html中直接引入
-            
-            html:
-               <link rel="stylesheet" href="./a.css">
-            css:
-                div{
-                  background-color: black;
-                  font-size: 25px
-               }
+       html:
+           <link rel="stylesheet" href="./a.css">
+       css:
+           div{
+               background-color: black;
+               font-size: 25px
+            }
    ### 4.选择器:
          
          选择器: 作用域  会对此选择器发生作用
@@ -138,18 +138,18 @@
                 <h1 id="show1" class="show" style="color:gray;">优先级测试</h1>
 ### 段落(文本)属性和边框以及背景属性
 
-         1. 边框:
+    1. 边框:
             border: 1px solid red;
             如果你不知道你所占的div的大小的时候, 可以使用border
          
-         2. 文本属性:
+    2. 文本属性:
             font-size: 设置字体的大小
             color: 设置字体的颜色
             text-align : left/right/center
             line-height: 行高  字体居中显示   取值应和height的值一样
             text-decoration: underline/line-through/overline
             
-         3. background-color: 颜色
+    3. background-color: 颜色
             颜色的取值:
                a. 颜色的英文名 (red/yellow等)
                b. 十六进制 (#dddddd)
@@ -161,7 +161,7 @@
          
             ps: chrome控制台可以获取你想要的颜色
          
-         4. 背景图像:
+    4. 背景图像:
             background-img:
                background-image: url("aaa.png");
                background-repeat: repeat-y;
@@ -172,7 +172,7 @@
                
          以下属性只对块级元素发生效果    
             
-         5. 布局属性:
+    5. 布局属性:
              
             外边距:
                一个div和另一个div之间的距离
@@ -217,26 +217,26 @@
             
             取消自带的留白
       
-         6. 浮动属性:
+    6. 浮动属性:
             
             float: left / right;
             
             如果儿子飘起来, 老子管不住:
                 <div style="clear: both"></div>
             
-         7. display:
+    7. display:
             display: block;  设置行内元素成一个块级元素
             display: inline; 设置块级元素成一个行内元素
             display: inline-block; 此元素分别具有块级元素和行内元素的特性
       
          
-         8. overflow溢出处理属性
+    8. overflow溢出处理属性
 
             overflow: auto; 自动设置滚动条
                
             overflow: none: 自动隐藏超出的部分
          
-         9. 定位属性
+    9. 定位属性
             
             position : fixed/ releative/ absolute
                top: 0;
@@ -256,15 +256,8 @@
       
          补充:
             border-radius: 50% : 图像变圆角
-      
-   
-   
-   作业:
-      
-   
-   
-   
-   javascript:
+            &nbsp 空格
+
 
 
 
