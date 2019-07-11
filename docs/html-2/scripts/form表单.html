@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="http://localhost:8888/" method="post" enctype="multipart/form-data">
+    姓名: <input type="text" name="username" placeholder="请输入用户名"> <br>
+    密码: <input type="password" name="pwd" placeholder="请输入密码"><br>
+    爱好: <input type="checkbox" name="hobby" value="football"> 足球
+    <input type="checkbox" name="hobby" value="basketball" checked> 蓝球
+    <input type="checkbox" name="hobby" value="yumaoqiu" checked> 羽毛球 <br>
+    性别: <input type="radio" name="gender" value="1" checked>男
+     <input type="radio" name="gender" value="0">女
+    <input type="file" >
+    <input type="hidden" name="token" value="dsadnsajdnskandksandskankdsandsjakndsa" /><br>
+
+    <select name="city" >
+  	    <option value="bj">北京</option>
+	    <option value="tj" selected="selected">天津</option>
+	    <option value="hb">河北</option>
+	    <option value="sd">山东</option>
+	    <option value="nm">内蒙</option>
+    </select><br>
+
+    <textarea cols="50" rows="30" name="content" maxlength="20">
+
+    </textarea>
+
+
+    <input type="submit" value="登陆">
+    <input type="reset" value="重置">
+</form>
+
+
+</body>
+</html>
