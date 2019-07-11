@@ -2,15 +2,16 @@
 ## css
 - 样式  
 - 相当于穿一件华丽的衣服  
-      1. 布局方式:
+
+### 1.布局方式:
          a. table方式布局
          b. div + table 结合着布局
          c. div + css 进行布局
       
-      2. css的概念:
+### 2. css的概念:
          布局以及样式
       
-      3. css的三种引入方式:
+### 3. css的三种引入方式:
          
          a. 直接在标签中写入 行内样式
             <div style="background-color: red; font-size: 25px">helloworld</div>
@@ -45,8 +46,7 @@
                   background-color: black;
                   font-size: 25px
                }
-   
-      4. 选择器:
+   ### 4.选择器:
          
          选择器: 作用域  会对此选择器发生作用
                
@@ -136,8 +136,7 @@
                * {color:green;}
             html:
                 <h1 id="show1" class="show" style="color:gray;">优先级测试</h1>
-
-      段落(文本)属性和边框以及背景属性
+### 段落(文本)属性和边框以及背景属性
 
          1. 边框:
             border: 1px solid red;
