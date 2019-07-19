@@ -43,7 +43,7 @@ js:
 
 
 #### a.变量声明
-
+```html
     python:
         name = 'zekai'
     js:
@@ -51,10 +51,10 @@ js:
 
     变量名命名的时候:
         可以使用 _，数字，字母，$ 组成，且不能以数字开头
-
+```
 
 #### b.JS变量类型
-
+```html
     python:
         字符串  str
         整型     int
@@ -108,9 +108,9 @@ js:
 
         字典(json)    dict
             var d = {"name":'zekai', 'age':18}
-
+```
 #### c.运算符介绍
-
+```html
     算数运算符
         + - * %
 
@@ -134,7 +134,7 @@ js:
             false
 
         !==
-
+```html
     4) 赋值运算符
 
         =  +=   -=  *=   /=
@@ -143,7 +143,7 @@ js:
 
 
 #### d.流程控制
-
+```html
     顺序
 
     分支
@@ -213,10 +213,10 @@ js:
                 第二种循环:
 
                     不可以
-
+   ```
 
 #### e.函数:
-
+```html
     python:
         def test():
             print('helloworld')
@@ -243,11 +243,11 @@ js:
 
 
 ps: 语言和语言之间都是一样的
-
+```
 
 
 ### 7. 类:
-
+```html
 python:
     class Test():
         pass
@@ -278,12 +278,12 @@ js:
 
         var str = JSON.stringify(obj); // 反序列化
 
-
+```
 ## DOM
 DOM: document Object model (文档对象模型)
 
 ### 1. 获取标签对象的三种方式:
-
+```html
         document.getElementById('#id'):
             获取的是单独的对象
 
@@ -292,8 +292,9 @@ DOM: document Object model (文档对象模型)
 
         document.getElementsByTagName('div')
             获取的是列表  列表中套对象
+```
 ### 2.  操作标签对象的内容以及属性
-
+```html
 
 a. <div id='c1'>dsbhabdsha</div>
 
@@ -309,8 +310,9 @@ a. <div id='c1'>dsbhabdsha</div>
 
         获取input系列标签中的value值:
             obj2.value : 既可以设置  也可以获取
-
+```
 b.  获取属性:
+```html
         attributes
 
     获取单个属性值:
@@ -324,15 +326,17 @@ b.  获取属性:
 
     type=button:
         disable : 设置是否禁用
-
+```
 c. // 在特定的时间内, 执行函数
+```html
     // setInterval()  ### crontab
     // setInterval("test()", 1000);
 
     // setTimout()  ## 只执行一次结束  ## at
     //setTimeout("test()", 1000);
-
+```
 ### 3. 设置css样式:
+```html
 大颗粒度的设置:
     style:
 
@@ -364,11 +368,11 @@ c. // 在特定的时间内, 执行函数
                 DOM:
                     obj.style.fontSize = "20px"
 
-
+```
 
 
 ### 4. 事件:
-
+```html
         onclick: 点击事件
         onmouseover: 鼠标放上去, 触发函数
         onmouseout: 鼠标移开, 触发函数
@@ -389,16 +393,19 @@ c. // 在特定的时间内, 执行函数
                 obj.onclick = function (){
 
                 }
+```
 
 ### 5.  window常见方法:
 
-        alert('1234')
+```html
+alert('1234')
 
-        confirm('是否确定删除?');
+confirm('是否确定删除?');
 
-        open(): 打开一个网页
+open(): 打开一个网页
 
-        location.href = "资源"  ### 跳转到某一个网页
+location.href = "资源"  ### 跳转到某一个网页
 
-        location.reload(): 刷新当前页面
+location.reload(): 刷新当前页面
+```
                     
