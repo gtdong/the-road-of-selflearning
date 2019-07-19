@@ -12,7 +12,7 @@ js:
             ....js的代码
    </script>
  ```
-### 2. 放置的位置:
+### 2. 放置的位置
 ```html 
 css:
     head标签中
@@ -22,17 +22,18 @@ js:
     2. 可以放置在body之后  (推荐)
 ```
             
-### 3. 引入第三方的js文件:
+### 3. 引入第三方的js文件
 ```html
 <script src="js的资源路径"></script>
 ```
     
-### 4. console.log('helloworld');
+### 4. 使用分号
 ```html
+console.log('helloworld');
 注意:
     建议大家在写js代码的时候, 加上分号
 ```
-### 5. 以后写js代码的选择:
+### 5. 以后写js代码的选择
 ```html
 a. 编辑器 (pycharm) (永久生效)
 b. console 开发者平台编写 (临时测试的js代码)
@@ -214,7 +215,7 @@ js:
                 不可以
    ```
 
-#### e.函数:
+#### e.函数
 ```html
 python:
     def test():
@@ -245,7 +246,7 @@ ps: 语言和语言之间都是一样的
 ```
 
 
-### 7. 类:
+### 7. 类
 ```html
 python:
     class Test():
@@ -281,7 +282,7 @@ js:
 ## DOM
 DOM: document Object model (文档对象模型)
 
-### 1. 获取标签对象的三种方式:
+### 1. 获取标签对象的三种方式
 ```html
         document.getElementById('#id'):
             获取的是单独的对象
@@ -293,9 +294,9 @@ DOM: document Object model (文档对象模型)
             获取的是列表  列表中套对象
 ```
 ### 2.  操作标签对象的内容以及属性
-```html
 
-a. <div id='c1'>dsbhabdsha</div>
+#### a.<div id='c1'>dsbhabdsha</div>
+```html
 
     js:
         var obj = document.getElementById('c1')
@@ -310,8 +311,9 @@ a. <div id='c1'>dsbhabdsha</div>
         获取input系列标签中的value值:
             obj2.value : 既可以设置  也可以获取
 ```
-b.  获取属性:
+#### b.  获取属性
 ```html
+
         attributes
 
     获取单个属性值:
@@ -326,7 +328,7 @@ b.  获取属性:
     type=button:
         disable : 设置是否禁用
 ```
-c. // 在特定的时间内, 执行函数
+#### c. // 在特定的时间内, 执行函数
 ```html
     // setInterval()  ### crontab
     // setInterval("test()", 1000);
