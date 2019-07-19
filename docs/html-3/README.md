@@ -14,28 +14,28 @@ js:
  ```
 ### 2. 放置的位置:
 ```html 
-        css:
-            head标签中
-        
-        js:
-            1. head标签中
-            2. 可以放置在body之后  (推荐)
+css:
+    head标签中
+
+js:
+    1. head标签中
+    2. 可以放置在body之后  (推荐)
 ```
             
 ### 3. 引入第三方的js文件:
 ```html
-        <script src="js的资源路径"></script>
+<script src="js的资源路径"></script>
 ```
     
 ### 4. console.log('helloworld');
 ```html
-        注意:
-            建议大家在写js代码的时候, 加上分号
+注意:
+    建议大家在写js代码的时候, 加上分号
 ```
 ### 5. 以后写js代码的选择:
 ```html
-        a. 编辑器 (pycharm) (永久生效)
-        b. console 开发者平台编写 (临时测试的js代码)
+a. 编辑器 (pycharm) (永久生效)
+b. console 开发者平台编写 (临时测试的js代码)
 ```
         
 
@@ -44,202 +44,201 @@ js:
 
 #### a.变量声明
 ```html
-    python:
-        name = 'zekai'
-    js:
-        var name = 'zekai'
+python:
+    name = 'zekai'
+js:
+    var name = 'zekai'
 
-    变量名命名的时候:
-        可以使用 _，数字，字母，$ 组成，且不能以数字开头
+变量名命名的时候:
+    可以使用 _，数字，字母，$ 组成，且不能以数字开头
 ```
 
 #### b.JS变量类型
 ```html
-    python:
-        字符串  str
-        整型     int
-        浮点型   float
-        布尔    bool  True False
-        列表    list
-        字典    dict
-        元组    tuple
-        集合    set
+python:
+    字符串  str
+    整型     int
+    浮点型   float
+    布尔    bool  True False
+    列表    list
+    字典    dict
+    元组    tuple
+    集合    set
 
-    js:
-        字符串  str
+js:
+    字符串  str
 
-            var name = 'zekai'  ## 字符串类型
+        var name = 'zekai'  ## 字符串类型
 
-                obj.length　　　　　　　　　　　　　　　长度  
-                obj.trim()　　　　　　　　　　　　　　　移除空白
-                obj.trimLeft()
-                obj.trimRight()
-                obj.charAt(n)　　　　　　　　　　　　　返回字符串中的第n个字符
-                obj.concat(value, …)　　　　　　　　 拼接
-                obj.indexOf(substring,start)　　　　子序列位置
-                obj.substring(from, to)　　　　　　　根据索引获取子序列
-                obj.slice(start, end)　　　　　　　　切片
-                obj.toLowerCase()　　　　　　　　　　大写
-                obj.toUpperCase()　　　　　　　　　　小写
-                obj.split(delimiter, limit)　　　　　分割
+            obj.length　　　　　　　　　　　　　　　长度  
+            obj.trim()　　　　　　　　　　　　　　　移除空白
+            obj.trimLeft()
+            obj.trimRight()
+            obj.charAt(n)　　　　　　　　　　　　　返回字符串中的第n个字符
+            obj.concat(value, …)　　　　　　　　 拼接
+            obj.indexOf(substring,start)　　　　子序列位置
+            obj.substring(from, to)　　　　　　　根据索引获取子序列
+            obj.slice(start, end)　　　　　　　　切片
+            obj.toLowerCase()　　　　　　　　　　大写
+            obj.toUpperCase()　　　　　　　　　　小写
+            obj.split(delimiter, limit)　　　　　分割
 
-        整型     int
-            var age = 12  ### 整型
+    整型     int
+        var age = 12  ### 整型
 
-        浮点型   float
-            var salary = 34.23
+    浮点型   float
+        var salary = 34.23
 
-        布尔    bool
-            var b = true /false
+    布尔    bool
+        var b = true /false
 
-        数组    array
-            var arr = ['zekai', 12, 'jjjj'];
+    数组    array
+        var arr = ['zekai', 12, 'jjjj'];
 
-                obj.length 数组的大小
-                obj.push(ele) 尾部追加元素
-                obj.pop() 尾部获取一个元素
-                obj.unshift(ele) 头部插入元素
-                obj.shift() 头部移除元素
-                obj.slice( ) 切片
-                obj.reverse( ) 反转
-                obj.join(sep) 将数组元素连接起来以构建一个字符串
-                obj.concat(val,..) 连接数组
-                obj.sort( ) 对数组元素进行排序
+            obj.length 数组的大小
+            obj.push(ele) 尾部追加元素
+            obj.pop() 尾部获取一个元素
+            obj.unshift(ele) 头部插入元素
+            obj.shift() 头部移除元素
+            obj.slice( ) 切片
+            obj.reverse( ) 反转
+            obj.join(sep) 将数组元素连接起来以构建一个字符串
+            obj.concat(val,..) 连接数组
+            obj.sort( ) 对数组元素进行排序
 
-        字典(json)    dict
-            var d = {"name":'zekai', 'age':18}
+    字典(json)    dict
+        var d = {"name":'zekai', 'age':18}
 ```
 #### c.运算符介绍
 ```html
-    算数运算符
-        + - * %
+算数运算符
+    + - * %
 
-        a++ ===> a += 1
+    a++ ===> a += 1
 
 
-        a-- ===> a -= 1
+    a-- ===> a -= 1
 
-    比较运算符:
+比较运算符:
 
-        >   >=   <    <=    !=    ==    
+    >   >=   <    <=    !=    ==    
 
-        ===   : 全等  
-            var a = 10;
+    ===   : 全等  
+        var a = 10;
 
-            var b = "10";
+        var b = "10";
 
-            a == b
-            true
-            a === b
-            false
+        a == b
+        true
+        a === b
+        false
 
-        !==
-```html
-    4) 赋值运算符
+    !==
+赋值运算符
 
-        =  +=   -=  *=   /=
+    =  +=   -=  *=   /=
 
-        a+=1 ====> a = a + 1
-
+    a+=1 ====> a = a + 1
+```
 
 #### d.流程控制
 ```html
-    顺序
+顺序
 
-    分支
-        if else if else
+分支
+    if else if else
 
 
 
-        python:
+    python:
 
-            分支:
-                if 表达式判断:
-                    ...
-                elif 表达式判断:
-                    ....
-                elif 表达式判断:
-                    ....
-                else:
-                    ....
+        分支:
+            if 表达式判断:
+                ...
+            elif 表达式判断:
+                ....
+            elif 表达式判断:
+                ....
+            else:
+                ....
 
-        js:
-            分支:
+    js:
+        分支:
 
-                var age = 18;
+            var age = 18;
 
-                if (age > 20){
-                    console.log('太大了');
-                } else if (age >40 && age<50){
-                    console.log('xxxx')
-                } else{
-                    console.log('xxxxxxxxx')
+            if (age > 20){
+                console.log('太大了');
+            } else if (age >40 && age<50){
+                console.log('xxxx')
+            } else{
+                console.log('xxxxxxxxx')
+            }
+
+循环
+
+    python:
+
+        for i in item :
+            print(i)
+
+        while
+
+
+    js:
+
+        数组:
+            var arr = ['凤姐', '龙哥', '张三']
+
+            第一种循环:
+                for (var i in arr){
+                    console.log(arr[i]);
                 }
 
-    循环
+            第二种循环:
 
-        python:
+                for (var i=0; i<arr.length; i++){
+                    console.log(arr[i]);
+                }
 
-            for i in item :
-                print(i)
+        字典:
+            var d = {"name":'zekai', 'age':18};
 
-            while
+            第一种循环:
+                for (var i in d){
+                    console.log(d[i]);
+                }
 
+            第二种循环:
 
-        js:
-
-            数组:
-                var arr = ['凤姐', '龙哥', '张三']
-
-                第一种循环:
-                    for (var i in arr){
-                        console.log(arr[i]);
-                    }
-
-                第二种循环:
-
-                    for (var i=0; i<arr.length; i++){
-                        console.log(arr[i]);
-                    }
-
-            字典:
-                var d = {"name":'zekai', 'age':18};
-
-                第一种循环:
-                    for (var i in d){
-                        console.log(d[i]);
-                    }
-
-                第二种循环:
-
-                    不可以
+                不可以
    ```
 
 #### e.函数:
 ```html
-    python:
-        def test():
-            print('helloworld')
+python:
+    def test():
+        print('helloworld')
 
-    js:
+js:
 
-        第一种方式:
-            function test(){
-                console.log('xxxxxxx');
-                return 'xxxx'
-            }
+    第一种方式:
+        function test(){
+            console.log('xxxxxxx');
+            return 'xxxx'
+        }
 
-            也是有返回值
-            test();
+        也是有返回值
+        test();
 
-        第二种方式:
+    第二种方式:
 
-            var test1 = function (){
-                console.log('hellotest1');
-            }
+        var test1 = function (){
+            console.log('hellotest1');
+        }
 
-            test1();
-            ps: 阮一峰  http://www.ruanyifeng.com/home.html
+        test1();
+        ps: 阮一峰  http://www.ruanyifeng.com/home.html
 
 
 ps: 语言和语言之间都是一样的
