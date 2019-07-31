@@ -1,0 +1,285 @@
+注释值代码之母
+
+
+
+前端内容
+    HTML
+        超文本标记语言
+
+        注释  <!--单行注释--->
+               <!--
+               多行注释
+               --->
+        head内常用标签
+            title  网页标题
+            meta  网页源信息
+            script  通过src引入外部js文件或者在该标签内直接写js代码
+            link  通过href引入外部css文件
+        body内常用标签
+            h1~h6  标题标签
+            a  链接标签
+                href  可以写url(统一资源定位符),还可以写另外一个a标签id值(锚点功能 实现两个标签直接跳转)
+                target  控制是在当前页跳转还是新建页面打开
+            img  图片标签
+                src
+                    1.图片的链接地址
+                    2.可以直接接受图片的二进制数据
+                    3.后端路径('/index'):src会自动请求该路径 获取相应结果
+                alt  图片加载不出来的时候 显示的提示信息
+
+                title  鼠标悬浮上去 显示的信息
+
+                width  修改长宽的时候 会自动等比例缩放
+
+            p  段落标签
+
+            div
+            span
+            ps:用于页面的前期布局
+
+            br
+            hr
+
+            i  斜体标签
+            s
+            u
+            b
+    标签分类
+        块儿级标签:独占一行
+        行内标签:内部文本多大 我就占多大
+
+
+        双标签
+        自闭和标签
+
+        表格标签
+            table
+                thead
+                    tr
+                        th
+                tbody
+                    tr
+                        td
+
+        form表单
+            写一个注册页面
+
+            能够将前端获取到的用户输入发送给后端
+            input前端的变形金刚  通过type属性
+                text
+                password
+                date
+                radio
+                checkbox
+
+                file
+
+                按钮
+                    button  :不能触发form表单的提交动作
+                    submit  :可以(你还可以通过直接写button按钮页能够触发提交动作)
+
+        textarea
+
+        select
+
+
+        form标签内关键性的参数
+            method  控制提交方式
+            action  控制提交路径
+            enctype  控制提交数据的编码格式
+            novalidate  取消浏览器自动校验功能
+
+
+css
+    注释 :/**/
+
+    标签查找
+        基本选择器
+        后代选择器
+
+    选择器的优先级
+       行内最大 > id选择器  > 类选择器  > 标签选择器
+
+
+    盒子模型
+        margin:条件标签与标签直接距离
+        border:边框
+        padding:内容与内边框之间的距离
+        content:文本内容
+
+
+    浮动
+        float
+
+        浮动是脱离文档流的
+
+        清除浮动带来的负面影响(造成父标签塌陷)
+
+
+
+    定位
+        相对定位
+
+        绝对定位
+
+        固定定位
+
+
+
+    z-index
+
+    display
+
+
+    overflow
+
+
+
+
+   border-radius
+
+js
+    声明变量关键字
+        var  全局
+        let  局部
+
+
+    前端编程语言
+
+    注释
+        //
+
+
+    数据类型
+        字符串类型String
+        数值类型(整型与浮点型)Number
+        布尔值(true false)
+        数组  []
+        自定义对象  {}
+        null与undefine
+        内置对象  Date,Reg,Math
+
+    BOM与DOM
+        BOM
+            window.location.href
+
+
+
+jQuery
+   模块在前端不叫模块 叫类库
+   它就类似于你python的第一个第三方模块
+   使用:
+        1.下载jQuery文件(js文件)
+        2.script导入
+
+   jQuery
+           宗旨:write less do more
+   $替代jQuery直接使用
+           $()
+           jQuery()
+   jQuery的语法结构
+            $(标签选择器).action()
+
+
+
+   jQuery对象本身可以看成一个数组,数组内的一个个元素其实就是原生的js对象
+   注意写前端代码的时候 一定要区分当前对象到底是jQuery对象还是js对象
+   只有jQuery对象才能调用jQuery的方法 js对象无法调用jQuery方法
+
+
+
+
+    本地文件(任何情况都可以使用 但是需要不停的拷贝)
+    应用外部CDN(只有在有网的时候才能用 好处是你可以做成模板的形式)
+
+
+
+
+
+
+
+
+
+
+
+使用Bootstrap它是基于jQuery的 所有需要先带入jQuery
+
+使用bootstrap所有的样式都是通过操作类属性来完成的
+
+
+
+    一行是均分成12份
+        col-md-6  来划分你想用多少份
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    CSS
+    JS

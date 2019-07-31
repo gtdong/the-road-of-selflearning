@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        .c1 {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: relative;
+        }
+        .c2 {
+            height: 400px;
+            width: 400px;
+            background-color: blue;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+<!--
+相对定位:相对于标签本身原来的位置(不脱离的文档流)
+绝对固定:相对于已经定位过的父标签再做一次定位(脱离文档流)
+固定定位:相对于浏览器窗口 始终固定在某一个位置保持不变(脱离文档流  回到底部)
+-->
+
+<div class="c1">
+    <div class="c2"></div>
+</div>
+</body>
+</html>

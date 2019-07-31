@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<p>来宾三位,23号技师为您服务!</p>
+
+
+<script>
+    $('p').hover(
+        function () {
+           alert('来了 老弟')  // 鼠标悬浮上去 自动触发
+    },
+        function () {
+            alert('下次再来哦')  // 鼠标移开自动触发
+        }
+        )
+</script>
+</body>
+</html>

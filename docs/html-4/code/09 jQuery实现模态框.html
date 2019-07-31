@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: grey;
+            z-index: 999;
+        }
+
+        .modal {
+            width: 400px;
+            height: 200px;
+            background-color:white;
+            z-index: 1000;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -200px;
+            margin-top: -100px;
+        }
+        .hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<button id="d1">点我弹出模态框</button>
+
+<div class="cover hidden"></div>
+<div class="modal hidden">
+    <form action="">
+        <p><label for="id_username">username:<input type="text" id="id_username"></label></p>
+        <p><label for="id_password">password:<input type="password" id="id_password"></label></p>
+        <input type="button" id="id_cancel" value="取消">
+    </form>
+</div>
+<script>
+    var d1ELe = document.getElementById('d1');
+    var $coverEle = $('.cover');
+    var $modalEle = $('.modal');
+    d1ELe.onclick = function (ev) {
+        // 将cover和modal里面hidden属性移除
+        $coverEle.removeClass('hidden');
+        $modalEle.removeClass('hidden');
+    };
+    var cancleELe = document.getElementById('id_cancel');
+    cancleELe.onclick = function (ev) {
+         // 将cover和modal里面hidden属性移除
+        $coverEle.addClass('hidden');
+        $modalEle.addClass('hidden');
+    }
+
+</script>
+</body>
+</html>

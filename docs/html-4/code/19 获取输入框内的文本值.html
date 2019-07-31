@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<form action="">
+    <p>username
+        <input type="text" id="id_username">
+        <span style="color: red"></span>
+    </p>
+    <p>password
+        <input type="password" id="id_password">
+        <span style="color: red"></span>
+    </p>
+    <input type="submit" id="id_submit" value="提交">
+</form>
+
+<script>
+    var submitEle = document.getElementById('id_submit');
+    submitEle.onclick = function (ev) {
+        // 获取两个输入框内的文本值
+        var $userName = $('#id_username');
+        var $passWord = $('#id_password');
+        // 判断是否为空
+        if ($userName.val().length == 0){
+            $userName.next().html('用户名不能为空')
+        }
+        if ($passWord.val().length == 0){
+            $passWord.next().html("密码不能为空")
+        }
+        return false  // 取消当前标签自带的动作
+
+    };
+
+    var inputEle = document.getElementsByTagName('input');
+    inputEle[0].onfocus = function (ev) {
+        // console.log(this)  // this指代的就是当前被操作对象原生js对象
+        $(this).next().html('')
+    }
+
+</script>
+</body>
+</html>

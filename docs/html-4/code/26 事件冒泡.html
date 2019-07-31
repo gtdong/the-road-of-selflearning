@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<div>div
+    <p>p
+        <span>span</span>
+    </p>
+</div>
+
+<script>
+    $('div').click(function (e) {
+        alert('div');
+    });
+    $('p').click(function (e) {
+        alert('p');
+        e.stopPropagation()
+    });
+    $('span').click(function (e) {
+        alert('span');
+        // e.stopPropagation()  取消事件的一层层传递机制
+    })
+</script>
+</body>
+</html>
