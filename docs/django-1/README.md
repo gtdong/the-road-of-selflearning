@@ -241,31 +241,33 @@ python3 manage.py migrate  将更改真正同步到数据库
 #### 数据的增删改查
 ```python
 增
-	1.create()
-		modeles.User.objects.create(kwargs)
-		create方法会返回当前所创建的数据对象(*****)
-	2.对象.save()
-		user_obj = models.User()
-		user_obj.username = 'jason'
-		user_obj.save()
+
+1.create()
+	modeles.User.objects.create(kwargs)
+	create方法会返回当前所创建的数据对象(*****)
+2.对象.save()
+	user_obj = models.User()
+	user_obj.username = 'jason'
+	user_obj.save()
 删
-	queryset对象.delete()
+
+queryset对象.delete()
 改
-	1.update()
-		models.User.objects.filter(kwargs).update()
-		批量更新
 
-	2.对象.save()
-		user_obj = models.User(kwargs)
-		user_obj.username = 'jason'
-		user_obj.save()
-		效率较低
+1.update()
+	models.User.objects.filter(kwargs).update()
+	批量更新
+
+2.对象.save()
+	user_obj = models.User(kwargs)
+	user_obj.username = 'jason'
+	user_obj.save()
+	效率较低
 查
-	1.all()  查所有 不需要传参数
-	2.filter(kwargs)  结构是一个queryset对象 你可以把它看成一个列表里面是一个个的数据对象
-```
-					
 
+1.all()  查所有 不需要传参数
+2.filter(kwargs)  结构是一个queryset对象 你可以把它看成一个列表里面是一个个的数据对象
+```				
 django的视图函数返回的是一个HttpResponse对象
 
 #### django请求生命周期		
