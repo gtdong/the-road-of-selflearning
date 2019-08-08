@@ -62,25 +62,25 @@ ps:bs本质也是cs
 	
 * 模板语法
 ```html
-	{{}}(变量名相关)  获取后端传递的数据 通过变量名
-	{%%}(逻辑相关)
-	
-	jinja2模板语法 极为接近后端python语法
-	
-	{{ data }}
-	<p>{{data.username}}</p>
-	<p>{{data['password']}}</p>
-	<p>{{data.hobby.0}}</p>
-	<p>{{data.hobby.1}}</p>
+{{}}(变量名相关)  获取后端传递的数据 通过变量名
+{%%}(逻辑相关)
 
-	
-	{%for user_dict in user_list%}
-            <tr>
-                <td>{{user_dict.id}}</td>
-                <td>{{user_dict.username}}</td>
-                <td>{{user_dict.password}}</td>
-            </tr>
-    {%endfor%}
+jinja2模板语法 极为接近后端python语法
+
+{{ data }}
+<p>{{data.username}}</p>
+<p>{{data['password']}}</p>
+<p>{{data.hobby.0}}</p>
+<p>{{data.hobby.1}}</p>
+
+
+{%for user_dict in user_list%}
+    <tr>
+	<td>{{user_dict.id}}</td>
+	<td>{{user_dict.username}}</td>
+	<td>{{user_dict.password}}</td>
+    </tr>
+{%endfor%}
 ```
 
 ### python三大主流web框架
@@ -165,22 +165,24 @@ ps:
 	
 
 * django静态文件配置
-`
+```python
 STATIC_URL = '/static/'  # 接口前缀
 STATICFILES_DIRS = [
 	os.path.join(BASE_DIR,'static'),
 ]
-		
-	
+```	
+```html	
 {% load static %}
 <link rel="stylesheet" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css'%}">
 <script src={% static "bootstrap-3.3.7/js/bootstrap.min.js"%}></script>
-`
+```
 
+`
 form表单默认是get请求 
 get请求携带的参数是拼接在url后面的以?开头&链接   
 ps:get请求可以携带参数 但是参数的大小有限制 最大4KB，并且是明文的   
 http://127.0.0.1:8000/login/?username=jason&password=123
+`
 	
 获取用户输入的框 都必须要有name属性
 	
@@ -278,13 +280,13 @@ django的视图函数返回的是一个HttpResponse对象
 
 * django请求生命周期		
 	
-`
+```
 request.GET  获取get请求携带的参数
 request.POST  获取post请求携带的参数
 	上面两者在用get取值的时候 默认取列表最后一个元素
 	如果想整体取用getlist
 request.method  获取当前请求方式
-`
+```
 
 
 
