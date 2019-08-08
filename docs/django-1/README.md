@@ -236,11 +236,11 @@ python3 manage.py migrate  将更改真正同步到数据库
 		
 		
 		
-* 编辑
+#### 编辑
   * 基于已经存在了的数据进行修改
   * 先将用户想要修改的数据查询出来 并且展示给用户看
   * 用户修改完之后发送post请求 后端修改数据			
-* 数据的增删改查
+#### 数据的增删改查
 ```python
 增
 	1.create()
@@ -270,7 +270,7 @@ python3 manage.py migrate  将更改真正同步到数据库
 
 django的视图函数返回的是一个HttpResponse对象
 
-* django请求生命周期		
+#### django请求生命周期		
 	
 ```
 request.GET  获取get请求携带的参数
