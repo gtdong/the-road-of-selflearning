@@ -197,21 +197,21 @@ http://127.0.0.1:8000/login/?username=jason&password=123
 * pycharm连接数据库
 * django连接mysql
 ```python
-1.配置文件中配置
-	DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'day19',
-		'USER':'root',
-		'PASSWORD':'123',
-		'HOST':'127.0.0.1',
-		'PORT':3306,
-		'CHARSET':'utf8'
-	}
-	}
-2.去应用名下的__init__.py或者项目名下的__init__.py文件中 告诉django不要使用默认的mysqld_db模块连接mysql而是使用pymysql
-	import pymysql
-	pymysql.install_as_MySQLdb()
+#1.配置文件中配置
+DATABASES = {
+'default': {
+	'ENGINE': 'django.db.backends.mysql',
+	'NAME': 'day19',
+	'USER':'root',
+	'PASSWORD':'123',
+	'HOST':'127.0.0.1',
+	'PORT':3306,
+	'CHARSET':'utf8'
+}
+}
+#2.去应用名下的__init__.py或者项目名下的__init__.py文件中 告诉django不要使用默认的mysqld_db模块连接mysql而是使用pymysql
+import pymysql
+pymysql.install_as_MySQLdb()
 ```
 
 	
@@ -232,10 +232,10 @@ ps:
   * 1.django orm不会帮你自动创建库 只能帮你自动创建表
   * 2.models.py中写模型类
   * 3.执行数据库迁移(同步)命令
- `
+```
 python3 manage.py makemigrations  将数据的更改操作记录到小本本上
 python3 manage.py migrate  将更改真正同步到数据库
-`
+```
 		
 		
 		
