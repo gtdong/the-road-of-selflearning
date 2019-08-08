@@ -84,10 +84,6 @@ jinja2模板语法 极为接近后端python语法
 ```
 
 ### python三大主流web框架
-	a:socket服务
-	b:路由与视图函数映射关系
-	c:模板渲染
-
 * django:大而全 类似于航空母舰
   * a用的别人的 wsgiref  上线之后会换成uwsgi
   * b自己写的
