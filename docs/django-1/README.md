@@ -101,17 +101,17 @@ jinja2模板语法 极为接近后端python语法
 		
 		
 ### django
-* 注意事项
+#### 注意事项
   * 1.计算机名称不能含有中文
   * 2.一个pycharm窗口就是一个工程(项目)
   * 3.项目文件夹不要有中文
   
-* ps:django版本问题
+#### ps:django版本问题
   * django 1.X
   * django 2.X
-* 安装
+#### 安装
 `pip3 install django == 1.11.11`
-* 命令行
+#### 命令行
 `创建django项目
 	django-admin startproject 项目名
 	ps:创建一个应用名的文件夹 里面有一个跟应用名同名的文件夹和一个manage.py文件
@@ -125,7 +125,7 @@ ps:
 2.在django中创建的应用必须去settings文件中注册才能生效,否则django不识别
 3.确保不要端口冲突	
 `
-* application
+#### application
   * 一个django项目 可以有多个应用
   * django是一款开发应用的web框架
   * django项目就类似是一所大学
@@ -133,15 +133,15 @@ ps:
 	
 	
 	
-* 项目名
+#### 项目名
 
-* 应用名文件夹
+#### 应用名文件夹
   * migrations文件夹: 数据库迁移记录
   * admin.py: django admin后台管理相关
   * models.py: 模型类
   * views.py: 视图函数
 		
-* 项目同名文件夹
+#### 项目同名文件夹
   * settings.py: django暴露用户可配置的配置文件
   * urls.py: 路由与视图函数映射关系
   * templates: 所有的html文件
@@ -149,18 +149,18 @@ ps:
 		
 	
 			
-* django小白必会三板斧
+#### django小白必会三板斧
   * HttpResponse:返回字符串
   * render:返回html页面
   * redirect:重定向
 
 
-* 静态文件
+#### 静态文件
 网站所用到的已经写好的文件(css,js,图片) 
 通常网站所用到的静态文件都会存放到static文件夹
 	
 
-* django静态文件配置
+#### django静态文件配置
 ```python
 STATIC_URL = '/static/'  # 接口前缀
 STATICFILES_DIRS = [
@@ -183,15 +183,15 @@ http://127.0.0.1:8000/login/?username=jason&password=123
 获取用户输入的框 都必须要有name属性
 	
 	
-* action参数有三种写法
+#### action参数有三种写法
   * 1.什么都不写 默认往当前页面的url地址提交
   * 2.只写路由后缀(******)
   * 3.写全路径
 		
 
 
-* pycharm连接数据库
-* django连接mysql
+#### pycharm连接数据库
+#### django连接mysql
 ```python
 #1.配置文件中配置
 DATABASES = {
@@ -211,7 +211,7 @@ pymysql.install_as_MySQLdb()
 ```
 
 	
-* ORM(对象关系映射)
+#### ORM(对象关系映射)
   * 类	>>>	数据库的表
 
   * 对象	>>>	数据库里面的一条条的表记录
@@ -224,7 +224,7 @@ ps:
 			
 
 			
-* django orm注意事项
+#### django orm注意事项
   * 1.django orm不会帮你自动创建库 只能帮你自动创建表
   * 2.models.py中写模型类
   * 3.执行数据库迁移(同步)命令
