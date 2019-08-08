@@ -194,7 +194,7 @@ http://127.0.0.1:8000/login/?username=jason&password=123
 
 * pycharm连接数据库
 * django连接mysql
-`
+```python
 1.配置文件中配置
 	DATABASES = {
 	'default': {
@@ -210,7 +210,7 @@ http://127.0.0.1:8000/login/?username=jason&password=123
 2.去应用名下的__init__.py或者项目名下的__init__.py文件中 告诉django不要使用默认的mysqld_db模块连接mysql而是使用pymysql
 	import pymysql
 	pymysql.install_as_MySQLdb()
-`
+```
 
 	
 * ORM(对象关系映射)
@@ -247,7 +247,7 @@ python3 manage.py migrate  将更改真正同步到数据库
 		
 		
 * 数据的增删改查
-`
+```python
 增
 	1.create()
 		modeles.User.objects.create(kwargs)
@@ -271,7 +271,7 @@ python3 manage.py migrate  将更改真正同步到数据库
 查
 	1.all()  查所有 不需要传参数
 	2.filter(kwargs)  结构是一个queryset对象 你可以把它看成一个列表里面是一个个的数据对象
-`
+```
 					
 
 django的视图函数返回的是一个HttpResponse对象
