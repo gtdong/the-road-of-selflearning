@@ -241,7 +241,6 @@ python3 manage.py migrate  将更改真正同步到数据库
 #### 数据的增删改查
 ```python
 增
-
 1.create()
 	modeles.User.objects.create(kwargs)
 	create方法会返回当前所创建的数据对象(*****)
@@ -249,11 +248,13 @@ python3 manage.py migrate  将更改真正同步到数据库
 	user_obj = models.User()
 	user_obj.username = 'jason'
 	user_obj.save()
+	
+	
 删
-
 queryset对象.delete()
-改
 
+
+改
 1.update()
 	models.User.objects.filter(kwargs).update()
 	批量更新
@@ -263,6 +264,8 @@ queryset对象.delete()
 	user_obj.username = 'jason'
 	user_obj.save()
 	效率较低
+	
+	
 查
 
 1.all()  查所有 不需要传参数
