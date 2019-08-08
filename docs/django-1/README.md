@@ -111,12 +111,12 @@ jinja2模板语法 极为接近后端python语法
 #### 命令行
 ```shell
 #创建django项目
-	django-admin startproject 项目名
-	ps:创建一个应用名的文件夹 里面有一个跟应用名同名的文件夹和一个manage.py文件
+django-admin startproject 项目名
+ps:创建一个应用名的文件夹 里面有一个跟应用名同名的文件夹和一个manage.py文件
 #创建应用
-	django-admin startapp 应用名
+django-admin startapp 应用名
 #启动django项目
-	python3 manage.py runserver
+python3 manage.py runserver
 
 #ps:
 #1.命令行创建django项目不会自动新建templates文件夹,并且settings配置文件不会自动写templates文件夹路径
