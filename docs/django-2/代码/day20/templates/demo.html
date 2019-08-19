@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+{#<p>{{ i }}</p>#}
+{#<p>{{ f }}</p>#}
+{#<p>{{ s }}</p>#}
+{#<p>{{ l }}</p>#}
+{#<p>{{ d }}</p>#}
+{#<p>{{ se }}</p>#}
+{#<p>{{ t }}</p>#}
+{##}
+{#<p>{{ foo }} 如果是函数名  传递到前端 会自动加括号调用 将调用后返回的结果展示到前端页面</p>#}
+
+{#<p>{{ obj }}</p>#}
+{#<p>{{ obj.index }} 只要是方法 都会自动加括号调用</p>#}
+{#<p>{{ obj.login }}</p>#}
+{#<p>{{ obj.reg }}</p>#}
+{##}
+{#<p>注意 django的模板语法不支持传参</p>#}
+{#<p>{{ l }}</p>#}
+{#<p>{{ l.0 }}</p>#}
+{##}
+{#<p>{{ d }}</p>#}
+{#<p>{{ d.name }}</p>#}
+{#<p>{{ d.password }}</p>#}
+
+<p>过滤器:会将|左边的当做第一个参数传入过滤器中 |右边的当做第二个参数传入过滤器中</p>
+{#{{ i|add:'w' }}#}
+{#{{ n|filesizeformat }}#}
+{##}
+{#{{ ctime }}#}
+{#{{ ctime|date:'Y年-m月'}}#}
+
+{#{{ sss|truncatechars:20 }}#}
+{#{{ sss|truncatewords:2 }}#}
+
+{#{{ h|safe }}#}
+{#{{ s1|safe }}#}
+{#{{ s2 }}#}
+{#{{ s3.100 }}#}
+<p>标签:逻辑相关</p>
+{#{% if s3.0 %}#}
+{#    <p>这个东西有值{{ s3 }}</p>#}
+{#    {% elif s3.1 %}#}
+{#    <p>有值</p>#}
+{#    {% else %}#}
+{#    <p>这个东西是空的</p>#}
+{#{% endif %}#}
+
+{% for foo in s %}
+    {% if forloop.first %}
+    <p>这是我的第一次</p>
+        {% elif forloop.last %}
+        <p>这是我的最后一次</p>
+        {% else %}
+        <p>{{ foo }}继续嗨~~~</p>
+    {% endif %}
+    {% empty %}
+    <p>你给我的对象是空的 没办法for循环</p>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
