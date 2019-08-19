@@ -1,156 +1,5 @@
-上周内容回顾
-	django
-	
-	手动实现简易版本的web框架
-	
-	HTTP协议
-		四大特性
-			1.基于TCP/IP作用于应用层的协议
-			2.基于请求响应的
-			3.无状态
-			4.无连接
-		
-		数据格式
-			请求/响应
-				请求首行
-				请求头(一大堆的k，v键值对)
-				
-				请求体(post请求携带的数据)
-				
-			响应同上
-		
-		HTTP协议响应状态码
-			1XX:服务端已经接受到了响应的数据 正在处理  你可以继续提交
-			2XX:请求成功
-			3XX:重定向
-			4XX:请求错误(404请求资源不存在)
-			5XX:服务端错误(500)
-		
-	get请求和post请求
-		get请求:获取数据
-		post请求:提交数据
-	
-	
-	django的安装
-		1.计算机的名称最好不要有中文
-		2.注意django版本的问题(1.X版本  1.11.11)
-		3.一个pycharm窗口只允许一个项目(工程)
-		4.路径最好也不要有中文
-	
-	命令行
-		pip3 install django==1.11.11  django如果之前已经装过其他版本不需要手动写在 直接安装 会自动卸载再重装
-	测试是否安装成功
-		django-admin
-	创建django项目
-		django-admin startproject mydjangoproject
-			在命令所在的位置创建一个名为mydjangoproject文件夹
-				mydjangoproject文件夹
-					__init__.py
-					urls.py  # 总路由  路由(网址 url)与视图函数(处理业务逻辑的函数/类)的对应关系
-					wsgi.py
-					settings.py  # 项目的配置文件
-				manage.py
-	创建django应用(application)
-		django-admin startapp app01
-				app01文件夹
-					migrations文件夹  # 数据库改动记录
-					__init__.py
-					admin.py  # django自带的admin的后台管理
-					models.py  # 模型类/表   ORM对象关系映射
-					apps.py  # 注册app的时候
-					views.py  # 业务逻辑的函数/类代码
-					test.py  # 测试文件
-		ps：一个django项目可以有多个应用，每个应用都可以有自己的static静态文件夹 templates模板文件夹
-			这样的话 就可以实现分任务开发
-	
-		ps：命令行创建django项目不会自动创建templates文件夹 需要你手动创建并且需要在settings配置文件中指定路径
-	
-	启动django项目
-		python manage.py  runserver
-			ps:django默认端口8000
-			
-	
-	
-	
-	配置文件几个重要的配置
-		1.注册app
-			每创建一个应用，一定要在settings中注册你的应用 否则django不识别
-		2.数据库配置
-			1.django默认用的sqlite小型数据库
-			可以将其指定成其他的数据库
-				 NAME  库的名字
-				 HOST
-				 PORT
-				 USER
-				 PASSWORD
-			2.数据库配置还需要在__init__.py(项目或者应用的都可以)中告诉django使用pymysql连接mysql
-			而不是有默认的mysqldb
-			
-			
-			
-		3.静态文件配置
-			STATIC_URL = 'static'  # 暴露给用户访问静态文件的接口前缀
-			STATICFILES_DIRS = [  # 列表内放的才是真正的静态文件所在的文件夹路径
-					os.path.join(BASE_DIR,'static')，
-					os.path.join(BASE_DIR,'static1')，
-					os.path.join(BASE_DIR,'static2')，
-				]
-			
-			前端动态解析静态文件接口前缀
-				{% load static %}
-				{% static "bootstrap-3.3.7/js/bootstrap.min.js"%}
-	
-			
-		django小白必会三板斧
-			HttpResponse  # 返回字符串
-			
-			render  # 返回html页面
-			
-			redirect  # 内部重定向
-			
-		数据库迁移命令
-			ps:django默认没有char字段 只有varchar 但是可以自定义char字段
-			
-			主要在models.py中动了跟数据库相关的代码，就必须执行数据库迁移的两条命令
-				1.python manage.py makemigrations  # 将改动记录记录到小本本上
-				2.Python manage.py migrate  # 真正的数据库操作命令
-				ps:当上述完整的命令记住之后可以使用简单版本的
-				TOOLS>>>run manage.py task
-				
-				
-		
-	登录注册
-		django获取前端信息
-			request.POST  # 获取的post提交的数据
-			request.GET  # 获取get请求携带的数据   get请求携带的参数 数据量是由大小限制的 大概在4KB左右
-				/index?id=1&password=2
-			ps:你可以直接将上述的结果看成是一个大字典
-		<QUERYSET {'username':['egon','jason'],'password':[123]}>
-		username = request.POST.get('username')  # jason  get获取的永远是列表的最后一个值
-		username_list = request.POST.getlist('username')  # ['egon','jason']
-		# 上述取值方式 POST GET都一样
-		
-		
-	简单的使用ORM
-		create()  # 创建数据
-			user_obj = models.User.objects.create(username='jason',password=123)
-			user_obj.username
-			user_obj.password
-			该方法是由一个返回值的 返回值就是当前你所创建的数据对象
-		
-		filter()  # 查询数据
-			该方法返回的结果是一个queryset对象
-			你可以把它看成是一个列表，里面放的是一个个的数据对象(juery对象和原生js对象)
-		
-		update()  # 更新数据
-			
-		
-		delete()  # 删除数据
-			
-			
-			
-			
-
+### 今日内容
+```python
 路由层
 	路由
 
@@ -163,27 +12,20 @@
 
 模型层
 	ORM语法
+```
 
-比较实用的组件
-	django中间件
-	forms组件
-	ajax
-	
-	auth模块
-	
-		
-			
-	ORM
-		类         		表
-		对象       		表数据
-		对象点属性 		表数据所对应的某个字段的值
-	
-	
-	
-	
-	
-	
-	django请求生命周期
+### 比较实用的组件
+* django中间件
+* forms组件
+* ajax
+* auth模块	
+### ORM
+```python
+类         		表
+对象       		表数据
+对象点属性 		表数据所对应的某个字段的值
+```
+### django请求生命周期
 	
 	有名分组和无名分组能否混合使用？
 		有名无名不能混合使用！！！
