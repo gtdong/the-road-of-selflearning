@@ -81,51 +81,48 @@ JsonResponse
 
 ### FBV和CBV
 	
-	FBV function based views
-	CBV class based views
-	
-	
-	CBV和FBV路由本质是一样的
-	都是url+函数内存地址
-	
-	
-	CBV
-		url(r'^login/',views.MyLogin.as_view())
-		
-		from django.views import View
-		class MyLogin(View):
-			def get(self,request):
-				return HttpResponse('get')
+FBV: function based views  
+CBV: class based views
 
-			def post(self,request):
-				return HttpResponse('post')
-	
-	
-		
-		
-	模版语法传值
-		
-		第一种
-			return render(request,'demo.html',{'xxx':[1,2,3,4]})
-		
-		第二种
-			return render(request,'demo.html',locals())
-		
-		前端使用
-			{{}}  变量相关
-			{%%}  逻辑相关
-			
-		前后端取消转义
-			前端
-				|safe
-			后端
-				from django.utils.safestring import mark_safe
+CBV和FBV路由本质是一样的,都是url+函数内存地址
+#### CBV
+```python
+url(r'^login/',views.MyLogin.as_view())
+
+from django.views import View
+class MyLogin(View):
+	def get(self,request):
+		return HttpResponse('get')
+
+	def post(self,request):
+		return HttpResponse('post')
+```
+### 模版语法传值
+```python
+
+第一种
+	return render(request,'demo.html',{'xxx':[1,2,3,4]})
+
+第二种
+	return render(request,'demo.html',locals())
+
+前端使用
+	{{}}  变量相关
+	{%%}  逻辑相关
+
+前后端取消转义
+	前端
+		|safe
+	后端
+		from django.utils.safestring import mark_safe
 
 
-				s2 =  "<h2>我是h2标签</h2>"
-				s2 = mark_safe(s2)
+		s2 =  "<h2>我是h2标签</h2>"
+		s2 = mark_safe(s2)
+```
 
-	过滤器及标签
+### 过滤器及标签
+```html
 	
 			标签
 			{% if s3.0 %}
@@ -176,8 +173,10 @@ JsonResponse
 			将一块html页面作为模块的方式 导入使用
 			{% include 'goodpage.html' %}
 			将goodpage.html页面内容直接导入到该语句的位置
-			
-单表操作
+```
+### ORM语法
+#### 单表操作
+```python
 	DateField()
 		auto_now:每次操作该数据的时候 都会自动更新当前时间
 		auto_now_add:数据第一次创建的时候 会将创建时间自动记录下来 后续的改动不会再自动更新该字段
@@ -207,14 +206,6 @@ JsonResponse
 	书和作者   多对多
 	作者和作者详情  一对一
 	
-	
-	
-
-	
-	
-	
-
-
 
 外健字段的增删改查
 
@@ -224,39 +215,9 @@ JsonResponse
 
 F与Q查询
 
-
-
-
-
 多对多关系建立
-
-ajax简介
-
-ajax使用
-
-ajax发送文件
-
-自定义分页器使用
-
-
-
-
-
-forms组件
-
-cookie，session
-
-
-
-django中间件
-
-csrf跨站请求伪造
-
-auth模块
-
-
 		
-		
+```
 		
 		
 		
