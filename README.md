@@ -20,3 +20,4 @@
 * [前端第三天](docs/html-3)
 * [前端第四天](docs/html-4)
 * [django第一天](docs/django-1)
+* [django第二天](docs/django-2)
