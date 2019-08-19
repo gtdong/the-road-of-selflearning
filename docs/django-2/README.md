@@ -27,78 +27,59 @@
 ```
 ### django请求生命周期
 ![img](img/django.png)
-	有名分组和无名分组能否混合使用？
-		有名无名不能混合使用！！！
+### 有名分组和无名分组能否混合使用？
+有名无名不能混合使用！！！
+### 反向解析
+```python
+注意:在起别名的时候 一定要保证 所有的别名都不能重复  必须是唯一的
+
+根据别名动态解析出可以匹配上视图函数之前的url的一个结果
+url(r'^testxxx/',views.test,name='t')
+url(r'^test/(\d+)/$',views.test,name='ttt'),
+前端
+	没有正则表达式的反向解析
+	{% url 't' %}
+	无名分组反向解析
+	{% url 'ttt' 1 %}
+	有名分组同上
+
+后端
+	from django.shortcuts import render,HttpResponse,redirect,reverse
+	没有正则表达式的反向解析
+	reverse('t')
+	无名分组反向解析
+	reverse('ttt',args=(1,))
+	有名分组同上
+
+
+ps:数字通常是数据库中查出来的数据的主键值
+```
+### 伪静态
+* 让一个动态页面伪装成一个看似数据已经写死了的静态页面
+* 让搜索引擎加大对你这个页面的搜藏力度
+* 加大seo查询
+始终还是抵不过RMB玩家
 		
-		
-		
-	反向解析
-		注意:在起别名的时候 一定要保证 所有的别名都不能重复  必须是唯一的
-		
-		根据别名动态解析出可以匹配上视图函数之前的url的一个结果
-		url(r'^testxxx/',views.test,name='t')
-		url(r'^test/(\d+)/$',views.test,name='ttt'),
-		前端
-			没有正则表达式的反向解析
-			{% url 't' %}
-			无名分组反向解析
-			{% url 'ttt' 1 %}
-			有名分组同上
-		
-		后端
-			from django.shortcuts import render,HttpResponse,redirect,reverse
-			没有正则表达式的反向解析
-			reverse('t')
-			无名分组反向解析
-			reverse('ttt',args=(1,))
-			有名分组同上
-			
-		
-		ps:数字通常是数据库中查出来的数据的主键值
-		
-	
-	
-	
-	
-	
-	
-			
-		
-	伪静态
-		让一个动态页面伪装成一个看似数据已经写死了的静态页面
-		让搜索引擎加大对你这个页面的搜藏力度
-		加大seo查询
-		
-		始终还是抵不过RMB玩家
-		
-	虚拟环境
-		想针对不同的项目 只下载对应用的到的模块
-		用不到的一概不要
-		
-		一个项目分配一个独立的环境
-		
-		
-		
-		虚拟环境就类似于你重新又下载了一个python解释器
-		
-		
-	
-	django版本区别
-		1.X
-			路由里面用的是url()
-		2.X
-			路由里面的用的是path()
-		url第一个参数放的是正则表达式
-		而你的path第一个参数写什么就是什么，不支持正则
-		如果你还想使用第一个参数是正则的方法
-		django2.X版本中有一个叫re_path()
-		ps:2.x中re_path就等价于1.x中的url
-		
-		虽然path不支持正则表达式，但是它提供了五种转换器(了解)
-	
-	JsonResponse
-		
-	
+### 虚拟环境
+想针对不同的项目, 只下载对应用的到的模块,用不到的一概不要,个项目分配一个独立的环境,虚拟环境就类似于你重新又下载了一个python解释器
+### django版本区别
+```python
+1.X
+	路由里面用的是url()
+2.X
+	路由里面的用的是path()
+url第一个参数放的是正则表达式
+而你的path第一个参数写什么就是什么，不支持正则
+如果你还想使用第一个参数是正则的方法
+django2.X版本中有一个叫re_path()
+ps:2.x中re_path就等价于1.x中的url
+
+虽然path不支持正则表达式，但是它提供了五种转换器(了解)
+JsonResponse
+```		
+
+
+### FBV和CBV
 	
 	FBV function based views
 	CBV class based views
