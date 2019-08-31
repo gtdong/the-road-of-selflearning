@@ -1,6 +1,7 @@
 ### 外健字段的增删改查
 [refer](https://www.cnblogs.com/Dominic-Ji/p/9203990.html)
 ### 跨表查询
+[refer](https://www.cnblogs.com/Dominic-Ji/p/9203990.html)
 ```python
 
 正向查询按字段
@@ -24,6 +25,7 @@
 	
 	
 ### 聚合与分组查询
+[refer](https://www.cnblogs.com/Dominic-Ji/p/9203990.html)
 ```python
 查看sql语句的第一种方式
 		LOGGING = {
@@ -60,9 +62,10 @@
 	分组查询  annotate
 ```
 ### F与Q查询
-
+[refer](https://www.cnblogs.com/Dominic-Ji/p/9213887.html)
 
 ### 事务(ACID)
+[refer](https://www.cnblogs.com/Dominic-Ji/p/9213887.html)
 ```python
 A：原子性
 C：一致性
@@ -94,6 +97,7 @@ ps:MTV本质也是MVC
 ```	
 
 ### 多对多表关系的三种创建方式
+[refer](https://www.cnblogs.com/Dominic-Ji/p/9203990.html)
 ```python
 1.全自动
 	authors = models.ManyToManyField(to='Author')
@@ -148,6 +152,7 @@ ps:MTV本质也是MVC
 
 
 ### ajax使用
+[refer](https://www.cnblogs.com/Dominic-Ji/p/9234099.html)
 ```python
 JSON.stringify({'name':'jason','password':'123'})  # 等价于 json.dumps()
 JSON.parse()										# 等价于json.loads()
@@ -189,48 +194,50 @@ ContentType:表示数据的编码格式
 ### ajax发送文件
 
 ### 自定义分页器使用
-
+[refer](https://www.cnblogs.com/Dominic-Ji/p/10391778.html)
 ### forms组件
+[refer](https://www.cnblogs.com/Dominic-Ji/p/9240365.html)
 ```python
-	注册页面
-		获取用户输入
-		判断用户输入是否合法
-		如果不合法展示错误信息
-		
-	
-	
-	forms组件能够干的事
-		1.前端页面搭建
-		2.后端数据校验
-		3.展示错误信息
-	1.后端数据校验
-		forms组件中字段默认都是必须传值的
-		forms组件默认不能少传字段 但是可以多传字段  多传的字段form组件直接忽略不考虑
-		
-		
-		class MyRegForm(forms.Form):
-			name = forms.CharField(max_length=8)  # name字段最大只能是八位
-			password = forms.CharField(max_length=8,min_length=3)  # 最大八位 最少三位
-			email = forms.EmailField()  # email字段接收的数据  必须符合邮箱格式
-		forms组件的使用  第一步生成一个继承form类的类
-		from app01 import views
-		obj = views.MyRegForm({"name":'jason','password':'12','email':'123'})
-		# 判断信息是否完全合法
-		obj.is_valid()
-		# 获取字段及错误信息
-		obj.errors
-		{'password': ['Ensure this value has at least 3 characters (it has 2).'],
-		 'email': ['Enter a valid email address.']}
-		# 获取符合条件的数据
-		obj.cleaned_data
-			
-	2.渲染标签
-		forms组件只会帮你渲染input框  form标签和submit提交按钮都需要你自己写
+注册页面
+	获取用户输入
+	判断用户输入是否合法
+	如果不合法展示错误信息
+
+
+
+forms组件能够干的事
+	1.前端页面搭建
+	2.后端数据校验
+	3.展示错误信息
+1.后端数据校验
+	forms组件中字段默认都是必须传值的
+	forms组件默认不能少传字段 但是可以多传字段  多传的字段form组件直接忽略不考虑
+
+
+	class MyRegForm(forms.Form):
+		name = forms.CharField(max_length=8)  # name字段最大只能是八位
+		password = forms.CharField(max_length=8,min_length=3)  # 最大八位 最少三位
+		email = forms.EmailField()  # email字段接收的数据  必须符合邮箱格式
+	forms组件的使用  第一步生成一个继承form类的类
+	from app01 import views
+	obj = views.MyRegForm({"name":'jason','password':'12','email':'123'})
+	# 判断信息是否完全合法
+	obj.is_valid()
+	# 获取字段及错误信息
+	obj.errors
+	{'password': ['Ensure this value has at least 3 characters (it has 2).'],
+	 'email': ['Enter a valid email address.']}
+	# 获取符合条件的数据
+	obj.cleaned_data
+
+2.渲染标签
+	forms组件只会帮你渲染input框  form标签和submit提交按钮都需要你自己写
 ```		
 		
 	
 
 ### cookie，session
+[refer](https://www.cnblogs.com/Dominic-Ji/p/10718365.html)
 ```python
 cookie:就是保存在浏览器上的键值对
 session:就是保存在服务器的上的键值对
@@ -273,6 +280,7 @@ index  home  xxx
 	
 
 ### django中间件
+[refer](https://www.cnblogs.com/Dominic-Ji/p/9229509.html)
 ```
 	django中间件就类似于是django的保安
 	消息来的时候和响应走的时候 都必须进过中间件
@@ -306,26 +314,11 @@ index  home  xxx
 		1.新建一个任意名称的py文件
 		2.文件内 写类继承中间件的总类
 		
-	
-	
-	
-
 csrf跨站请求伪造
 	钓鱼网站
 	
 ```	
 	
-	
-
-
-
-
-auth模块  
-
-
-
-
-BBS表设计
 
 
 
