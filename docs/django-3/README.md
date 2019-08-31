@@ -1,134 +1,7 @@
-django请求生命周期
+### 外健字段的增删改查
 
-路由层:路由与视图函数对应关系，但是视图函数可以是真正的函数也可以是类 
-	FBV：基于函数的视图
-	CBV：基于类的视图
-		判断当前请求方式在不在默认的八个请求方式内
-		然后根据反射回去到字符串方法名所对应的对象中的方法
-		调用该方法返回相应结果
-		class MyLogin(View):
-			def get(self,request):
-				pass
-			def post(self,request):
-				pass
-		
-		obj = MyLogin()
-		handler = getattr(obj,request.method.lower())
-		return handler()
-
-- 正则表达式
-	url(正则表达式,视图函数内存地址)
-	
-	
-- 无名分组
-	url(r'^edit/(\d+)/',views.edit_view)  会将\d+匹配到的数字当做位置参数传递给后面的视图函数
-- 有名分组
-	url(r'^edit/(?P<edit_id>\d+)/',views.edit_view)  会将\d+匹配到的数字当做关键字参数传递给后面的视图函数
-- 反向解析
-	url(r'^edit/(?P<edit_id>\d+)/',views.edit_view，name='app01_add')
-	起别名千万不要重复
-	当有多个app存在的情况下，起别名的时候推荐你加上应用前缀
-		app01
-		app02
-		app03
-		
-	前端  
-		{% url 别名%}
-		
-		有名无名
-		{% url 别名 args1 args2 %}
-	后端
-		reverse('别名')
-		无名分组
-		reverse('别名',args=(1,))
-		有名分组
-		reverse('别名',args=(1,))
-- 路由分发
-	当一个django项目下面有多个app的情况下，总的urls.py中路由与视图函数的对应关系太多 不便于管理
-	这个时候就可以再每个app下创建自己的urls.py，总的urls.py不再做对应关系，而只是做分发任务
-	
-	
-	每个app下都可以有自己的urls.py  static文件夹   templates模板文件
-	也就意味着 每个app都可以被独立的开发出来  而不需要讨论交互(******)
-	
-	
-	
-
-
-
-伪静态
-	url名带有.html后缀，看起来像是静态文件
-虚拟环境
-	每个项目都可以有专门属于自己项目的开发环境
-Django2.0
-	django2.0中
-		path  第一个参数不支持正则 写什么就匹配什么
-		re_path 就等价于django1.0中的url
-jsonresponse
-	返回json格式的数据
-	json.dumps({'name':'矮跟'},ensure_ascii = False)
-	JsonResponse(dic,json_dumps_params={'ensure_ascii':False})
-
-fbv与cbv
-	
-
-
-
-模版语法传值
-	变量相关 {{}}
-	逻辑相关 {%%}
-	
-	传值的时候 如果是函数或者是方法  会自动加括号调用 将函数或者方法的返回结果展示到前端
-	模板语法不支持给函数传参
-	
-	
-	
-
-过滤器及标签
-	{{ 1|add:1}}
-	|date:"Y-m-d"
-	213210312|filesizeformat
-	|truncatechars
-	|truncatewords
-	
-	
-	
-	{% if %}
-	
-	{% elif %}
-
-	{% endif %}
-
-	{%for item in l%}
-		{{forloop}}
-		first
-		last
-		counter0
-		counter
-	{%empty%}
-		
-	{%endfor%}
-	
-	
-模版的继承与导入
-	{% extends  '模板名'%}
-	
-	{% block content %}
-	{% endblock %}
-	
-	
-	{% include  '子板名'%}
-
-单表操作
-	
-
-常用查询方法
-
-图书管理系统表设计
-
-外健字段的增删改查
-
-跨表查询
+### 跨表查询
+```python
 
 	正向查询按字段
 	反向查询按表名小写
@@ -147,6 +20,7 @@ fbv与cbv
 	
 	
 	基于双下滑线的跨表查询(连表查询)
+```
 	
 	
 	
