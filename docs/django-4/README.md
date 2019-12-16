@@ -122,7 +122,7 @@ fbv与cbv
 	{% include  '子板名'%}
 ```
 
-```
+```python
 单表操作
 	
 
