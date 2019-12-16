@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{ blog.site_title }}</a>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">文章分类</h3>
+                </div>
+                <div class="panel-body">
+                    {% for category in category_list  %}
+                        <p><a href="/{{ username }}/category/{{ category.2 }}/">{{ category.0 }}({{ category.1 }})</a></p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">文章标签</h3>
+                </div>
+                <div class="panel-body">
+                    {% for tag in tag_list %}
+                        <p><a href="/{{ username }}/tag/{{ tag.2 }}/">{{ tag.0 }}({{ tag.1 }})</a></p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">日期归档</h3>
+                </div>
+                <div class="panel-body">
+                    {% for foo in date_list %}
+                        <p><a href="/{{ username }}/archive/{{ foo.0|date:'Y-m' }}/">{{ foo.0|date:'Y年-m月' }}（{{ foo.1 }}）</a></p>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            {% for article in article_list %}
+                 <h4 class="media-heading"><a href="/{{ article.blog }}/article/{{ article.pk }}">{{ article.title }}</a></h4>
+                <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object" src="/media/{{ article.blog.userinfo.avatar }}" alt="" height="60">
+                </a>
+              </div>
+              <div class="media-body">
+                {{ article.desc }}
+              </div>
+{#                posted @ 2018-12-04 11:52 武沛齐 阅读 (6999) 评论 (13) 编辑#}
+                    <div>
+                        <span>posted @ {{ article.create_time|date:'Y-m-d' }}</span>
+                        <span>{{ article.blog.userinfo.username }}</span>
+                    <span><span class="glyphicon glyphicon-comment"></span>评论({{ article.comment_num }})</span>
+                    <span><span class="glyphicon glyphicon-thumbs-up"></span>点赞({{ article.up_num }})</span>
+                        <span><a href="">编辑</a></span>
+                    </div>
+
+            </div>
+                <hr>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

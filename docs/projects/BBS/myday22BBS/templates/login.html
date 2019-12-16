@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-offset-3">
+            <h2 class="text-center">登录</h2>
+            <br>
+            <div class="form-group">
+                <label for="id_username">用户名</label>
+                <input type="text" id="id_username" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_password">密码</label>
+                <input type="text" id="id_password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_code">验证码</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" id="id_code" name="code" class="form-control">
+
+                    </div>
+                    <div class="col-md-6">
+                        <img src="/get_code/" alt="" width="310" height="35" id="id_img">
+
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="id_submit">登录</button>
+                <span class="error" style="color: red"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#id_img').click(function () {
+        var oldPath = $(this).attr('src');
+        $(this).attr('src', oldPath + '?')
+    });
+    $('#id_submit').click(function () {
+        $.ajax({
+            url: '',
+            type: 'post',
+            data: {
+                'username': $('#id_username').val(),
+                'password': $('#id_password').val(),
+                'code': $('#id_code').val(),
+                'csrfmiddlewaretoken': '{{csrf_token}}'
+            },
+            success: function (data) {
+                if (data.code == 100) {
+                    location.href = data.url
+                } else {
+                    $('#id_submit').next().html(data.msg)
+                }
+
+            }
+
+        })
+
+    })
+</script>
+</body>
+</html>

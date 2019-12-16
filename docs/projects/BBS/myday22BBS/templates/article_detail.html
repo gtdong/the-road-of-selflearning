@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #div_digg {
+            float: right;
+            margin-bottom: 10px;
+            margin-right: 30px;
+            font-size: 12px;
+            width: 125px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .diggit {
+            float: left;
+            width: 46px;
+            height: 52px;
+            background: url(/static/img/upup.gif) no-repeat;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 2px;
+            padding-top: 5px;
+        }
+
+        .buryit {
+            float: right;
+            margin-left: 20px;
+            width: 46px;
+            height: 52px;
+            background: url(/static/img/downdown.gif) no-repeat;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 2px;
+            padding-top: 5px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #digg_tips {
+            display: none;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{ blog.site_title }}</a>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">文章分类</h3>
+                </div>
+                <div class="panel-body">
+                    {% for category in category_list %}
+                        <p><a href="/{{ username }}/category/{{ category.2 }}/">{{ category.0 }}({{ category.1 }})</a>
+                        </p>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">文章标签</h3>
+                </div>
+                <div class="panel-body">
+                    {% for tag in tag_list %}
+                        <p><a href="/{{ username }}/tag/{{ tag.2 }}/">{{ tag.0 }}({{ tag.1 }})</a></p>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">日期归档</h3>
+                </div>
+                <div class="panel-body">
+                    {% for foo in date_list %}
+                        <p>
+                            <a href="/{{ username }}/archive/{{ foo.0|date:'Y-m' }}/">{{ foo.0|date:'Y年-m月' }}({{ foo.1 }})</a>
+                        </p>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <h2><a href="">{{ article_obj.title }}</a></h2>
+            {{ article_obj.content|safe }}
+            {#            点赞点踩样式#}
+            <div class="clearfix">
+                <div id="div_digg">
+                    <div class="diggit action">
+                        <span class="diggnum" id="digg_count">{{ article_obj.up_num }}</span>
+                    </div>
+                    <div class="buryit action">
+                        <span class="burynum" id="bury_count">{{ article_obj.down_num }}</span>
+                    </div>
+                    <div class="clear"></div>
+                    <span style="color: red" id="error"></span>
+                </div>
+            </div>
+
+
+            {#        评论楼的展示#}
+            <div>
+                <p>评论列表</p>
+
+                <ul class="list-group">
+                    {% for comment in comment_list %}
+                        {#                            #1楼 2019-01-03 15:12 yuzhiboyou#}
+                        <li class="list-group-item">
+                            <span>#{{ forloop.counter }}楼</span>
+                            <span>{{ comment.create_time|date:"Y-m-d" }}</span>
+                            <span><a href="/{{ comment.user.username }}/">{{ comment.user.username }}</a></span>
+                            <span class="pull-right"><a class="reply" username="{{ comment.user.username }}" comment_id = '{{ comment.pk }}'>回复</a></span>
+                            <p>
+                                {% if  comment.parent %}
+                                    <p>@{{ comment.parent.user.username }}</p>
+                                {% endif %}
+                                {{ comment.content }}
+                            </p>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+
+            </div>
+
+
+            {#            评论样式#}
+            {% if request.user.is_authenticated %}
+                <div>
+                    <p>发表评论</p>
+                    <p>
+                        昵称：<input type="text" id="tbCommentAuthor" class="author" disabled="disabled" size="50"
+                                  value="{{ request.user.username }}">
+                    </p>
+                    <p>评论内容:</p>
+                    <p><textarea name="content" id="id_txt" cols="60" rows="10"></textarea></p>
+                    <p>
+                        <button class="btn btn-primary" id="id_comment">提交评论</button>
+                    </p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script>
+    $('.action').click(
+        function () {
+            var isUp = $(this).hasClass('diggit');
+            var spanEle = $(this).children();
+            $.ajax({
+                    url: '/updown/',
+                    type: 'post',
+                    data: {'article_id': '{{article_obj.pk}}', 'is_up': isUp, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                    success: function (data) {
+                        if (data.code == 100) {
+                            var oldNum = spanEle.text();
+                            spanEle.text(Number(oldNum) + 1);
+                            $('#error').html(data.msg)
+                        } else {
+                            $('#error').html(data.msg)
+                        }
+                    }
+                }
+            )
+        }
+    );
+
+    var parentId = null;
+    $('#id_comment').click(function () {
+        $.ajax({
+            url: '/comment/',
+            type: 'post',
+            data: {
+                'article_id':{{ article_obj.pk }},
+                'content': $('#id_txt').val(),
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'parent_id':parentId
+            },
+            success: function (data) {
+                if (data.code == 100) {
+                    var $ulEle = $('.list-group');
+                    var content = $('#id_txt').val();
+                    var userName = "{{ request.user.username }}";
+                    var tempStr = `
+                        <li class="list-group-item">
+
+                            <span><a href="/${userName}/">${userName}</a></span>
+                            <p>
+                                ${content}
+                            </p>
+                        </li>
+                    `;
+                    $ulEle.append(tempStr);
+                    $('#id_txt').val('');
+                    parentId = null;
+                }
+            }
+        })
+    });
+
+    $('.reply').click(function () {
+        var targetUserName = $(this).attr("username");
+        console.log(targetUserName);
+        parentId = $(this).attr('comment_id');
+        var tmp = '@' + targetUserName + '\n';
+        $('#id_txt').val(tmp).focus();
+    })
+
+
+</script>
+
+</body>
+</html>

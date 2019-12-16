@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2 class="text-center">注册</h2>
+            <br>
+            <form id="myform">
+            {% csrf_token %}
+                {% for foo in form_obj %}
+                    <div class="form-group">
+                        <label for="{{ foo.auto_id }}">{{ foo.label }}</label>
+                        {{ foo }}
+                    <span class="error pull-right" style="color: red"></span>
+                    </div>
+                {% endfor %}
+
+                <div class="form-group">
+                    <label for="myfile">头像
+                        <img src="/static/img/default.jpg" alt="" height="80px" style="margin-left: 20px" id="id_img">
+                    </label>
+                    <input type="file" name="avatar" id="myfile" style="display: none">
+                </div>
+                <input type="button" class="btn btn-success pull-right" value="注册" id="id_submit">
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $('#myfile').change(function () {
+        var fileReader = new FileReader();
+        var myFile = $(this)[0].files[0];
+        fileReader.readAsDataURL(myFile);
+        fileReader.onload = function() {
+            $('#id_img').attr('src',fileReader.result)
+        }
+    });
+    //绑定点击事件 触发提交动作
+    $('#id_submit').click(function () {
+        var formData = new FormData();
+        $.each($('#myform').serializeArray(),function (index,obj) {
+            formData.append(obj.name,obj.value)
+        });
+        //手动添加文件对象
+        formData.append('myfile',$('#myfile')[0].files[0]);
+        //发送ajax请求
+        $.ajax({
+            url:'',
+            type:'post',
+            data:formData,
+            processData:false,
+            contentType:false,
+
+            success:function (data) {
+                if (data.code == 100){
+                    location.href = data.url
+                }else{
+                    //  找到对应的input放入对应错误信息
+                    $.each(data.msg,function (index,obj) {
+                        var targetId = '#id_' + index;
+                        $(targetId).next().html(obj[0]).parent().addClass('has-error')
+
+                    })
+                }
+
+            }
+        })
+
+    });
+
+    $('input').focus(function () {
+        $(this).next().html('').parent().removeClass('has-error')
+    })
+</script>
+</body>
+</html>
