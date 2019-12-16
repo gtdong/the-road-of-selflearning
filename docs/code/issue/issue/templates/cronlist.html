@@ -1,0 +1,84 @@
+{% extends 'master/base.html' %}
+{% block body %}
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="box">
+                <div class="box-header">
+                    <a href="{% url 'createcron' %}" class="btn btn-sm btn-success add-btn">添加计划任务</a>
+                    <div class="box-tools pull-right">
+                        <form action="" method="get">
+                            <div class="input-group input-group-sm " style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control pull-right"
+                                       placeholder="Search">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>序号</th>
+                            <th>名称</th>
+                            <th>主机列表</th>
+                            <th>时间</th>
+                            <th>任务</th>
+                            <th>操作</th>
+                        </tr>
+                        {% for cron in crons %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ cron.name }}</td>
+                                <td>
+                                {% for host in cron.hosts_list.all %}
+                                {{ host.hostip }}
+                                {% endfor %}
+
+                                </td>
+                                <td>{{ cron.time }}</td>
+                                <td>{{ cron.job }}</td>
+                               <td>
+                                    <a class="btn btn-success btn-sm edit-btn"
+                                         href="{% url 'editcron' cron.pk %}">编辑
+                                    </a>
+                                    <div class="btn btn-warning btn-sm del-btn"
+                                         data-url="{% url 'delcron' cron.pk %}">删除
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <div>
+                <ul class="pagination pagination-sm no-margin pull-right">
+                    {{ page_html|safe }}
+                </ul>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script>
+        $("#cron").addClass("active");
+         $(".del-btn").on("click", function () {
+            var url = $(this).attr("data-url");
+            ui.confirm("你确认要删除这条记录吗？", function () {
+                Net.get({
+                    url: url,
+                    reload: true,
+                })
+            })
+        })
+    </script>
+{% endblock %}

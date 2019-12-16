@@ -1,0 +1,81 @@
+{% load static %}
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src={% static "AdminLTE/img/user2-160x160.jpg" %} class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{ user.name }}</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+          <li id="dashboard">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>主页</span>
+          </a>
+        </li>
+        <li class="treeview" id="menu_issue">
+          <a href="#">
+            <i class="fa fa-download"></i> <span>发布管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li id="issue"><a href="{% url 'updatelist' %}"><i class="fa fa-circle-o"></i> 发布列表</a></li>
+            <li id="backup"><a href="{% url 'rollbacklist' %}"><i class="fa fa-circle-o"></i> 回滚列表</a></li>
+          </ul>
+        </li>
+          <li id="host">
+          <a href="{% url 'hostlist' %}">
+            <i class="fa fa-server"></i> <span>主机管理</span>
+          </a>
+        </li>
+          <li id="project">
+          <a href="{% url 'projectlist' %}">
+            <i class="fa fa-share-alt"></i> <span>项目管理</span>
+          </a>
+        </li>
+          <li id="command">
+          <a href="{% url 'commlist' %}">
+            <i class="fa fa-file-code-o"></i> <span>命令下发</span>
+          </a>
+        </li>
+          <li id="cron">
+          <a href="{% url 'cronlist' %}">
+            <i class="fa fa-safari"></i> <span>定时任务</span>
+          </a>
+        </li>
+          <li id="init">
+          <a href="{% url 'initlist' %}">
+            <i class="fa  fa-files-o"></i> <span>初始化</span>
+          </a>
+        </li>
+          {% if user.is_admin == "0" %}
+          <li id="user">
+          <a href="{% url 'userlist' %}">
+            <i class="fa fa-user"></i> <span>用户管理</span>
+          </a>
+              {% endif %}
+        </li>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>

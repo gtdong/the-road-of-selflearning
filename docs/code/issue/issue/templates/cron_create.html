@@ -1,0 +1,177 @@
+{% extends 'master/base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'plugins/zTree_v3/css/zTreeStyle/zTreeStyle.css' %}" type="text/css">
+{% endblock %}
+{% block body %}
+    <div class="col-md-6">{% csrf_token %}
+
+        <form class="form-horizontal" id="createForm" action="" method="post">{% csrf_token %}
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">分钟
+                        <span class="text-red">*</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <select id="minute_select" class="form-control" name="time">
+
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">小时
+                        <span class="text-red">*</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <select id="hour_select" class="form-control" name="time">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">天
+                        <span class="text-red">*</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <select id="day_select" class="form-control" name="time">
+
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">月
+                        <span class="text-red">*</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <select id="month_select" class="form-control" name="time">
+
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">周
+                        <span class="text-red">*</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <select id="weekday_select" class="form-control" name="time">
+
+
+                        </select>
+                    </div>
+                </div>
+                {% for field in form %}
+                    <div class="form-group{% if field.errors %} has-error{% endif %}">
+                        <label class="col-sm-2 control-label">{{ field.label }}
+                            {% if field.field.required %}
+                                <span class="text-red">*</span>
+                            {% endif %}
+                        </label>
+                        <div class="col-sm-9">
+                            {{ field }}
+                        </div>
+                        <span class="help-block">
+                          {% for error in field.errors %}
+                              {{ error }}
+                          {% endfor %}
+                            {{ field.help_text }}
+                        </span>
+                    </div>
+                {% endfor %}
+                <div class="text-center">
+                    <button type="reset" class="btn btn-warning">清空</button>
+                    <button id="createBtn" type="button" class="btn btn-info">提交</button>
+                    <p class="text-center"><i id='iconWait'></i></p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div class="bg-black-active color-palette" style="height: 450px">
+            计划名称:<p id="res_name"></p>
+            执行用户:<p id="res_user"></p>
+            时间:<p id="res_time"></p>
+            任务:<p id="res_job"></p>
+            描述信息:<p id="res_note"></p>
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script>
+        $("select").select2()
+        /* 生成分钟列表*/
+        var minute_select = $("#minute_select");
+        minute_select.append("<option value='*'>*</option>")
+        for (var i = 0; i < 60; i++) {
+            minute_select.append("<option value='" + i + "'>" + i + "</option>")
+            if (i > 1) {
+                minute_select.append("<option value='*/" + i + "'>*/" + i + "</option>")
+            }
+        }
+        var hour_select = $("#hour_select");
+        hour_select.append("<option value='*'>*</option>")
+        for (var i = 0; i < 24; i++) {
+            hour_select.append("<option value='" + i + "'>" + i + "</option>")
+            if (i > 1) {
+                hour_select.append("<option value='*/" + i + "'>*/" + i + "</option>")
+            }
+        }
+        var day_select = $("#day_select");
+        day_select.append("<option value='*'>*</option>")
+        for (var i = 1; i < 32; i++) {
+            day_select.append("<option value='" + i + "'>" + i + "</option>")
+            if (i > 1) {
+                day_select.append("<option value='*/" + i + "'>*/" + i + "</option>")
+            }
+        }
+        var month_select = $("#month_select");
+        month_select.append("<option value='*'>*</option>")
+        for (var i = 1; i < 13; i++) {
+            month_select.append("<option value='" + i + "'>" + i + "</option>")
+            if (i > 1) {
+                month_select.append("<option value='*/" + i + "'>*/" + i + "</option>")
+            }
+        }
+        var weekday_select = $("#weekday_select");
+        weekday_select.append("<option value='*'>*</option>")
+        week_list=["星期一","星期二","星期三","星期四","星期五","星期六","星期天"]
+        for (var i = 1; i < 8; i++) {
+            weekday_select.append("<option value='" + i + "'>" + week_list[i-1] + "</option>")
+        }
+        function schedule() {
+            time=""+minute_select.val()+" " +hour_select.val()+" "+day_select.val()+" " +month_select.val()+ " "+weekday_select.val()
+            $("#res_time").text(time);
+            $("#res_job").text($("#id_job").val())
+            $("#res_note").text($("#id_note").val())
+            $("#res_user").text($("#id_user").val())
+            $("#res_name").text($("#id_name").val())
+        }
+
+        $("select,input").change(schedule);
+        if({{ pk }} != 0 ){
+            /* 通过查找option[value=VALUE]添加选中属性*/
+            {#minute_select.find("option[value='"+{{ time|safe }}[0]+"']").attr("selected",true)#}
+            minute_select.val({{ time|safe }}[0])
+            hour_select.val({{ time|safe }}[1])
+            day_select.val({{ time|safe }}[2])
+            month_select.val({{ time|safe }}[3])
+            weekday_select.val({{ time|safe }}[4])
+            $("#id_name").attr('readonly',true);
+            url="{% url 'editcron' pk %}"
+        }else{
+            url="{% url 'createcron' %}"
+        }
+        schedule()
+        $("#createBtn").on("click",function () {
+            Net.post({
+                url:url,
+                data:$("#createForm").serialize(),
+                go:{% url 'cronlist' %},
+                btn:$("#createBtn")
+            })
+        })
+    </script>
+{% endblock %}

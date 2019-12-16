@@ -1,0 +1,173 @@
+{% extends 'master/base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'plugins/zTree_v3/css/zTreeStyle/zTreeStyle.css' %}" type="text/css">
+{% endblock %}
+{% block body %}
+    <div class="col-md-6">{% csrf_token %}
+
+        <div class="zTreeDemoBackground left" style="height: 350px;overflow: scroll">
+            <ul id="treeDemo" class="ztree"></ul>
+        </div>
+        <div>
+            <textarea class="form-control" id="command_text" style="height: 80px" type="text"></textarea>
+        </div>
+        <div class="text-center">
+            <button type="reset" class="btn btn-warning">清空</button>
+            <button id="createBtn" type="button" class="btn btn-info">提交</button>
+            <p class="text-center"><i id='iconWait'></i></p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="bg-black-active color-palette" style="height: 450px">
+            <p>选中<span id="checkCount" class="highlight_red"></span>台机器</p>
+            <p>结果展示：</p><pre id="result"></pre>
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="{% static 'plugins/zTree_v3/js/jquery.ztree.core.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/zTree_v3/js/jquery.ztree.excheck.js' %}"></script>
+    <SCRIPT type="text/javascript">
+        <!--
+        var setting = {
+            view: {
+                selectedMulti: false
+            },
+            check: {
+                enable: true
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                onCheck: onCheck
+            }
+        };
+
+        var clearFlag = false;
+
+        function onCheck(e, treeId, treeNode) {
+            count();
+            if (clearFlag) {
+                clearCheckedOldNodes();
+            }
+        }
+
+        function clearCheckedOldNodes() {
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+                nodes = zTree.getChangeCheckedNodes();
+            for (var i = 0, l = nodes.length; i < l; i++) {
+                nodes[i].checkedOld = nodes[i].checked;
+            }
+        }
+
+        function count() {
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+                checkCount = zTree.getCheckedNodes(true).length
+            if (checkCount > 0) {
+                $("#checkCount").text(checkCount - 1);
+            } else {
+                $("#checkCount").text(0);
+            }
+        }
+
+        function createTree() {
+            $.fn.zTree.init($("#treeDemo"), setting, {{ hosts_list|safe }});
+            count();
+            clearFlag = $("#last").attr("checked");
+        }
+
+        $(document).ready(function () {
+            createTree();
+            $("#init").bind("change", createTree);
+            $("#last").bind("change", createTree);
+        });
+        $("#createBtn").on("click", function () {
+            var commnad = $("#command_text").val()
+            if (commnad == "") {
+                alert("请输入命令")
+                return
+            }
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+                nodes = zTree.getCheckedNodes(true)
+            if (nodes.length == 0) {
+                alert("请选择主机")
+                return
+            }
+            nodes_list = [];
+            nodes.forEach(function (node) {
+                if (node.pId) {
+                    nodes_list.push(node.name) //生成新的只有ip地址的列表
+                }
+            })
+            $.post({
+                url:{% url 'createcomm' %},
+                data: {
+                    nodes: nodes_list,
+                    command: commnad,
+                    csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+                },
+                beforeSend: function () {  //ajax发送之前
+                    $("#createBtn").attr('disabled', 'disabled');
+                    $("#iconWait").addClass("fa fa-spinner fa-spin")
+
+                },
+                complete: function () {   //ajax请求结束
+                    $("#createBtn").attr('disabled', null);
+                    $("#iconWait").removeClass("fa fa-spinner fa-spin")
+                },
+                success: function (res) {
+                    var data=res.msg;
+                    var msg="";
+                    if(Object.values(data.ok).length!=0){
+                        var data_ok=data.ok;
+                        $.each(data_ok,function (k,v) {
+                            msg=msg+"<font color=yellow>"+k+"| CHANGED | rc=0 >>\n"
+                            msg=msg+v.command.stdout+"</font>\n"
+                            if(v.command.stderr!=""){
+                                 msg=msg+"<font color=red>"+v.command.stderr+"</font>\n";
+                            }
+
+                        })
+                    }
+                    if(Object.values(data.failed).length!=0){
+                         var data_failed=data.failed;
+                        $.each(data_failed,function (k,v) {
+                            msg=msg+"<font color=red>"+k+"| FAILED | rc=2 >>\n";
+                            msg=msg+v.command.stderr+"</font>\n"
+                            if(v.command.stdout!=""){
+                                 msg=msg+"<font color=yellow>"+v.command.stdout+"</font>\n";
+                            }
+                        })
+                    }
+                    if(Object.values(data.unreachable).length!=0){
+                         var data_unreachable=data.unreachable;
+                        $.each(data_unreachable,function (k,v) {
+                            msg=msg+"<font color=red>"+k+"| UNREACHABLE! =>\n";
+                            msg=msg+v.command.msg+"</font>\n"
+                        })
+                    }
+                    if(Object.values(data.skipped).length!=0){
+                         var data_skipped=data.skipped;
+                        $.each(data_skipped,function (k,v) {
+                            msg=msg+"<font color=cyan>"+k+"| CHANGED | rc=0 >>\n"
+                            msg=msg+v.command.stdout+"</font>\n"
+                            if(v.command.stderr!=""){
+                                 msg=msg+"<font color=red>"+v.command.stderr+"</font>\n";
+                            }
+
+                        })
+                    }
+                    $("#result").html(msg)
+                }
+            })
+
+        })
+        //-->
+    </SCRIPT>
+{% endblock %}

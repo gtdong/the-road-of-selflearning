@@ -1,0 +1,103 @@
+{% extends 'master/base.html' %}
+{% block body %}
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="box">
+                <div class="box-header">
+                    <div class="btn btn-sm btn-success add-btn">添加初始化</div>
+                    <div class="btn btn-sm btn-success update-btn">初始化机器</div>
+                    <div class="box-tools pull-right">
+                        <form action="" method="get">
+                            <div class="input-group input-group-sm " style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control pull-right"
+                                       placeholder="Search">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>序号</th>
+                            <th>名字</th>
+                            <th>初始化功能</th>
+                            <th>playbook路径</th>
+                            <th>创建人</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                        {% for init in inits %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ init.name }}</td>
+                                <td>{{ init.function }}</td>
+                                <td>{{ init.play_book }}</td>
+                                <td>{{ init.create_user }}</td>
+                                <td>{{ init.create_time|date:"Y-m-d H:i:s" }}</td>
+                                <td>
+                                    <div class="btn btn-success btn-sm edit-btn"
+                                         data-url="{% url 'editinit' init.pk %}">编辑
+                                    </div>
+                                    <div class="btn btn-info btn-sm edit-btn"
+                                         data-url="{% url 'loglist' init.pk %}">详情
+                                    </div>
+                                    <div class="btn btn-warning btn-sm del-btn"
+                                         data-url="{% url 'delinit' init.pk %}">删除
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <div>
+                <ul class="pagination pagination-sm no-margin pull-right">
+                    {{ page_html|safe }}
+                </ul>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script>
+        $("#init").addClass("active");
+        $(".add-btn").on("click", function () {
+            ui.box({
+                title: "新增初始化",
+                remote: {% url 'createinit' %}
+            })
+        })
+        $(".update-btn").on("click", function () {
+            ui.box({
+                title: "初始化机器",
+                remote: {% url 'createinitlog' %}
+            })
+        })
+        $(".edit-btn").on("click", function () {
+            ui.box({
+                title: "编辑初始化",
+                remote: $(this).attr("data-url")
+            })
+        })
+        $(".del-btn").on("click", function () {
+            var url = $(this).attr("data-url");
+            ui.confirm("你确认要删除这条记录吗？", function () {
+                Net.get({
+                    url: url,
+                    reload: true,
+                })
+            })
+        })
+    </script>
+{% endblock %}

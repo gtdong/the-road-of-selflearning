@@ -1,0 +1,45 @@
+<form class="form-horizontal" id="createForm" action="" method="post">{% csrf_token %}
+    <div class="box-body">
+        {% for field in form %}
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label class="col-sm-2 control-label">{{ field.label }}
+                    {% if field.field.required %}
+                        <span class="text-red">*</span>
+                    {% endif %}
+                </label>
+                <div class="col-sm-9">
+                    {{ field }}
+                </div>
+                <span class="help-block">
+                  {% for error in field.errors %}
+                      {{ error }}
+                  {% endfor %}
+                 {{ field.help_text }}
+                </span>
+            </div>
+        {% endfor %}
+        <div class="box-footer text-center">
+            <button type="reset" class="btn btn-warning">清空</button>
+            <button id="createBtn" type="button" class="btn btn-info">提交</button>
+            <p class="text-center"><i id='iconWait'></i></p>
+        </div>
+    </div>
+</form>
+{% block js %}
+    <script>
+        $("select").select2();
+        $("#createBtn").on("click", function () {
+            if ("{{ pk }}" == "0") {
+                url = "{% url 'createinit' %}"
+            } else {
+                url = "{% url 'editinit' pk %}"
+            }
+            Net.post({
+                url: url,
+                data: $("#createForm").serialize(),
+                btn: $("#createBtn"),
+                go:{% url 'initlist' %}
+            })
+        })
+    </script>
+{% endblock %}

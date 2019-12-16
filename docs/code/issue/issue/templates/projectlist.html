@@ -1,0 +1,107 @@
+{% extends 'master/base.html' %}
+{% block body %}
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="box">
+                <div class="box-header">
+                    <div class="btn btn-sm btn-success add-btn">添加项目</div>
+                    <div class="box-tools pull-right">
+                        <form action="" method="get">
+                            <div class="input-group input-group-sm " style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control pull-right"
+                                       placeholder="Search">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>序号</th>
+                            <th>项目名</th>
+                            <th>项目目录</th>
+                            <th>语言</th>
+                            <th>负责人</th>
+                            <th>域名</th>
+                            <th>操作</th>
+                        </tr>
+                        {% for project in projects %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ project.name }}</td>
+                                <td>{{ project.path }}</td>
+                                <td>{{ project.get_language_display }}</td>
+                                <td>
+                                    {% for boss in project.boss.all %}
+                                    {{ boss.name }},
+                                    {% endfor %}
+
+                                </td>
+                                <td>{{ project.domain|default:"" }}</td>
+                                <td>
+                                    <div class="btn btn-success btn-sm edit-btn"
+                                         data-url="{% url 'editproject' project.pk %}">编辑
+                                    </div>
+                                    <div class="btn btn-info btn-sm detail-btn"
+                                         data-url="{% url 'dproject' project.pk %}">详情
+                                    </div>
+                                    <div class="btn btn-warning btn-sm del-btn"
+                                         data-url="{% url 'delproject' project.pk %}">删除
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <div>
+                <ul class="pagination pagination-sm no-margin pull-right">
+                    {{ page_html|safe }}
+                </ul>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script>
+        $("#project").addClass("active");
+        $(".add-btn").on("click", function () {
+            ui.box({
+                title: "新增项目",
+                remote: {% url 'createproject' %}
+            })
+        })
+        $(".edit-btn").on("click", function () {
+            ui.box({
+                title: "编辑项目",
+                remote: $(this).attr("data-url")
+            })
+        })
+        $(".detail-btn").on("click", function () {
+            ui.box({
+                title: "项目详情",
+                remote: $(this).attr("data-url")
+            })
+        })
+        $(".del-btn").on("click", function () {
+            var url = $(this).attr("data-url");
+            ui.confirm("你确认要删除这条记录吗？", function () {
+                Net.get({
+                    url: url,
+                    reload: true,
+                })
+            })
+        })
+    </script>
+{% endblock %}

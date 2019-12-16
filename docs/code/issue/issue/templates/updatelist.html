@@ -1,0 +1,126 @@
+{% extends 'master/base.html' %}
+{% block body %}
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="box">
+                <div class="box-header">
+                    <div class="btn btn-sm btn-success git-btn">git更新</div>
+                    <div class="btn btn-sm btn-success file-btn">文件更新</div>
+                    <div class="box-tools pull-right">
+                        <form action="" method="get">
+                            <div class="input-group input-group-sm " style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control pull-right"
+                                       placeholder="Search">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>序号</th>
+                            <th>项目名称</th>
+                            <th>更新类型</th>
+                            <th>发布人</th>
+                            <th>更新状态</th>
+                            <th>更新时间</th>
+                            <th>操作</th>
+                        </tr>
+                        {% for issue in issues %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ issue.project.name }}</td>
+                                <td>{{ issue.get_type_display }}</td>
+                                <td>{{ issue.user.name }}</td>
+                                <td>{{ issue.get_status_display }}</td>
+                                <td>{{ issue.create_time|date:"Y-m-d H:i:s" }}</td>
+                                <td>
+                                    <div class="btn btn-success btn-sm edit-btn"
+                                         data-url="{% url 'detailissue' issue.pk %}">详情
+                                    </div>
+                                    {% if issue.status == "0" %}
+                                        <div class="btn btn-warning btn-sm update-btn"
+                                             data-url="{% url 'update' issue.pk %}">开始更新
+                                        </div>
+                                    {% elif issue.status == "1" %}
+                                        <div class="btn btn-warning btn-sm update-btn" disabled>更新中
+                                        </div>
+                                    {% elif issue.status == "2" %}
+                                        <div class="btn btn-warning btn-sm update-btn"
+                                             data-url="{% url 'success' issue.pk %}">测试通过
+                                        </div>
+                                        <div class="btn btn-danger btn-sm update-btn"
+                                             data-url="{% url 'rollback' issue.pk %}">回滚
+                                        </div>
+                                    {% elif issue.status == "3" %}
+                                        <div class="btn btn-warning btn-sm update-btn"
+                                             data-url="{% url 'againupdate' issue.pk %}">更新剩余
+                                        </div>
+                                    {% elif issue.status == "4" or issue.status == "6" %}
+                                        <div class="btn btn-warning btn-sm update-btn" data-url="#">确认
+                                        </div>
+
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <div>
+                <ul class="pagination pagination-sm no-margin pull-right">
+                    {{ page_html|safe }}
+                </ul>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script>
+        $("#menu_issue").addClass("active");
+        if(location.pathname=={% url 'updatelist' %}){
+            $("#issue").addClass("active");
+        }else {
+            $("#backup").addClass("active");
+        }
+        $(".git-btn").on("click", function () {
+            ui.box({
+                title: "git更新",
+                remote: {% url 'gitupdate' %}
+            })
+        })
+        $(".file-btn").on("click", function () {
+            ui.box({
+                title: "文件更新",
+                remote: {% url 'fileupdate' %}
+            })
+        })
+        $(".edit-btn").on("click", function () {
+            ui.box({
+                title: "详情",
+                remote: $(this).attr("data-url")
+            })
+        })
+        $(".update-btn").on("click", function () {
+            $(this).text("更新中")
+            $(this).attr("disabled", "disabled");
+            Net.get({
+                url: $(this).attr("data-url"),
+                reload: true
+
+            })
+        })
+
+    </script>
+{% endblock %}

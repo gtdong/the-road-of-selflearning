@@ -1,0 +1,148 @@
+<form class="form-horizontal" id="createForm" action="" enctype="multipart/form-data" method="post">{% csrf_token %}
+    <div class="box-body">
+        {% for field in form %}
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label class="col-sm-2 control-label">{{ field.label }}
+                    {% if field.field.required %}
+                        <span class="text-red">*</span>
+                    {% endif %}
+                </label>
+                <div class="col-sm-9">
+                    {{ field }}
+                </div>
+                <span class="help-block">
+                  {% for error in field.errors %}
+                      {{ error }}
+                  {% endfor %}
+                    {{ field.help_text }}
+                </span>
+            </div>
+        {% endfor %}
+        <div class="form-group">
+            <label class="col-sm-2 control-label">更新类型
+                <span class="text-red">*</span>
+            </label>
+            <div class="col-sm-9">
+                <div class="form-group" id="check_type">
+                    <label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="type" class="minimal check_type" value="bra"
+                                                       checked>分支发布
+                    </label>
+                    <label>
+                        <input type="radio" name="type" value="tag" class="minimal check_type">tag发布
+                    </label>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group" id="branch_div">
+            <label class="col-sm-2 control-label">分支信息
+                <span class="text-red">*</span>
+            </label>
+            <div class="col-sm-9">
+                <select id="branch_select" class="form-control" name="branch">
+                </select>
+            </div>
+        </div>
+        <div class="form-group" id="commit_div">
+            <label class="col-sm-2 control-label">发布记录
+                <span class="text-red">*</span>
+            </label>
+            <div class="col-sm-9">
+                <select id="commit_select" class="form-control" name="commit">
+                </select>
+            </div>
+        </div>
+        <div class="form-group" id="tag_div">
+            <label class="col-sm-2 control-label">tag信息
+                <span class="text-red">*</span>
+            </label>
+            <div class="col-sm-9">
+                <select id="tag_select" class="form-control" name="tag"></select>
+            </div>
+        </div>
+        <div class="box-footer text-center">
+            <button type="reset" class="btn btn-warning">清空</button>
+            <button id="createBtn" type="button" class="btn btn-info">提交</button>
+            <p class="text-center"><i id='iconWait'></i></p>
+        </div>
+    </div>
+</form>
+{% block js %}
+    <script>
+        /*
+        hide()隐藏
+        show()显示
+        empty()清空
+        */
+        $("#tag_div").hide();
+        /*显示或者隐藏标签*/
+        $(".check_type").change(function () {
+            /*.check_type:checked 获取class为check_type的checked的属性*/
+            var type = $(".check_type:checked").val();
+            if (type == "tag") {
+                $("#tag_div").show();
+                $("#commit_div").hide()
+                $("#branch_div").hide()
+            } else {
+                $("#commit_div").show()
+                $("#branch_div").show()
+                $("#tag_div").hide();
+            }
+        });
+        /*获取分支信息*/
+        $("#id_project").change(function () {
+            console.log($("#id_project").val());
+            var project = $("#id_project").val()
+            $("#branch_select").empty();
+            $("#tag_select").empty();
+            $("#branch_select").append("<option value='0'>----------</option>")
+            $("#tag_select").append("<option value='0'>----------</option>")
+            $.get({
+                url: "/getbranch/" + project,
+                success: function (res) {
+                    data = res.data;
+                    data.forEach(function (d) {
+                        $("#branch_select").append("<option value='" + d + "'>" + d + "</option>")
+                    })
+                    console.log(res)
+                }
+            })
+            $.get({
+                url: "/gettag/" + project,
+                success: function (res) {
+                    data = res.data;
+                    data.forEach(function (d) {
+                        $("#tag_select").append("<option value='" + d + "'>" + d + "</option>")
+                    })
+                    console.log(res)
+                }
+            })
+        })
+        /*获取提交信息*/
+        $("#branch_select").change(function () {
+            var project = $("#id_project").val();
+            var bra = $("#branch_select").val();
+            $("#commit_select").empty()
+            $.get({
+                url: "/getcommit/" + project + "/" + bra,
+                success: function (res) {
+                    data = res.data;
+                    data.forEach(function (d) {
+                        $("#commit_select").append("<option value='" + d.id + "'>" + d.message + "</option>")
+                    })
+                    console.log(res)
+                }
+            })
+        })
+        $("select").select2();
+        $("#createBtn").on("click", function () {
+            Net.post({
+                url: {% url 'gitupdate' %},
+                data: $("#createForm").serialize(),
+                btn: $("#createBtn"),
+                go:{% url 'updatelist' %}
+            })
+        })
+    </script>
+{% endblock %}

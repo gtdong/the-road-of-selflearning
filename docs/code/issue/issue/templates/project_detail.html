@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr>
+                        <td>项目名</td>
+                        <td>{{ project.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>责任人</td>
+                        <td>
+                            {% for boss in  project.boss.all %}
+                                {{ boss.name }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>开发人</td>
+                        <td>
+                            {% for du in  project.dev_user.all %}
+                                {{ du.name }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>测试人员</td>
+                        <td>
+                            {% for tu in  project.test_user.all %}
+                                {{ tu.name }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>运维人员</td>
+                        <td>
+                            {% for ou in  project.ops_user.all %}
+                                {{ ou.name }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>项目目录</td>
+                        <td>{{ project.path }}</td>
+                    </tr>
+                    <tr>
+                        <td>git地址</td>
+                        <td>{{ project.git_path }}</td>
+                    </tr>
+                    <tr>
+                        <td>nginx主机</td>
+                        <td>
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>主机名</th>
+                                    <th>主机ip</th>
+                                    <th>主机环境</th>
+                                </tr>
+                                {% for nginx in  project.nginx_host.all %}
+                                    <tr>
+                                        <td>{{ nginx.name }}</td>
+                                        <td>{{ nginx.hostip }}</td>
+                                        <td>{{ nginx.get_env_display }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>语言</td>
+                        <td>{{ project.get_language_display }}</td>
+                    </tr>
+                    <tr>
+                        <td>后端主机</td>
+                        <td>
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>主机名</th>
+                                    <th>主机ip</th>
+                                    <th>主机环境</th>
+                                </tr>
+                                {% for server in  project.server_host.all %}
+                                    <tr>
+                                        <td>{{ server.name }}</td>
+                                        <td>{{ server.hostip }}</td>
+                                        <td>{{ server.get_env_display }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>域名</td>
+                        <td>{{ project.domain }}</td>
+                    </tr>
+                    <tr>
+                        <td>状态</td>
+                        <td>{{ project.get_status_display }}</td>
+                    </tr>
+                    <tr>
+                        <td>备注</td>
+                        <td>{{ project.note }}</td>
+                    </tr>
+
+
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <div>
+            <ul class="pagination pagination-sm no-margin pull-right">
+                {{ page_html|safe }}
+            </ul>
+            <!-- /.box -->
+        </div>
+    </div>
+</div>

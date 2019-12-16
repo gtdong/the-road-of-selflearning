@@ -1,0 +1,98 @@
+{% extends 'master/base.html' %}
+{% block body %}
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="box">
+                <div class="box-header">
+                    <div class="btn btn-sm btn-success add-btn">添加主机</div>
+                    <div class="box-tools pull-right">
+                        <form action="" method="get">
+                            <div class="input-group input-group-sm " style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control pull-right"
+                                       placeholder="Search">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>序号</th>
+                            <th>主机名</th>
+                            <th>主机ip</th>
+                            <th>环境</th>
+                            <th>系统版本</th>
+                            <th>类型</th>
+                            <th>状态</th>
+                            <th>ssh端口</th>
+                            <th>操作</th>
+                        </tr>
+                        {% for host in hosts %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ host.name }}</td>
+                                <td>{{ host.hostip }}</td>
+                                <td>{{ host.get_env_display }}</td>
+                                <td>{{ host.version }}</td>
+                                <td>{{ host.get_type_display }}</td>
+                                <td>{{ host.get_status_display }}</td>
+                                <td>{{ host.ssh_port }}</td>
+                                <td>
+                                    <div class="btn btn-success btn-sm edit-btn"
+                                         data-url="{% url 'edithost' host.pk %}">编辑
+                                    </div>
+                                    <div class="btn btn-warning btn-sm del-btn"
+                                         data-url="{% url 'delhost' host.pk %}">删除
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <div>
+                <ul class="pagination pagination-sm no-margin pull-right">
+                    {{ page_html|safe }}
+                </ul>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script>
+
+        $("#host").addClass("active");
+        $(".add-btn").on("click", function () {
+            ui.box({
+                title: "新增主机",
+                remote: {% url 'createhost' %}
+            })
+        })
+        $(".edit-btn").on("click", function () {
+            ui.box({
+                title: "编辑主机",
+                remote: $(this).attr("data-url")
+            })
+        })
+        $(".del-btn").on("click", function () {
+            var url = $(this).attr("data-url");
+            ui.confirm("你确认要删除这条记录吗？", function () {
+                Net.get({
+                    url: url,
+                    reload: true,
+                })
+            })
+        })
+    </script>
+{% endblock %}
