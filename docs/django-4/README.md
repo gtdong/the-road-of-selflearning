@@ -1,20 +1,20 @@
 ### django请求生命周期
 ```python
 路由层:路由与视图函数对应关系，但是视图函数可以是真正的函数也可以是类 
-	FBV：基于函数的视图
-	CBV：基于类的视图
-		判断当前请求方式在不在默认的八个请求方式内
-		然后根据反射回去到字符串方法名所对应的对象中的方法
-		调用该方法返回相应结果
-		class MyLogin(View):
-			def get(self,request):
-				pass
-			def post(self,request):
-				pass
-		
-		obj = MyLogin()
-		handler = getattr(obj,request.method.lower())
-		return handler()
+    FBV：基于函数的视图
+    CBV：基于类的视图
+        判断当前请求方式在不在默认的八个请求方式内
+	然后根据反射回去到字符串方法名所对应的对象中的方法
+	调用该方法返回相应结果
+class MyLogin(View):
+	def get(self,request):
+		pass
+	def post(self,request):
+		pass
+
+obj = MyLogin()
+handler = getattr(obj,request.method.lower())
+return handler()
 ```
 
 ```python
