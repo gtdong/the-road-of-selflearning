@@ -110,17 +110,17 @@ fbv与cbv
 	{%empty%}
 		
 	{%endfor%}
-```python
+```
 	
 ### 模版的继承与导入
-```
-	{% extends  '模板名'%}
-	
-	{% block content %}
-	{% endblock %}
-	
-	
-	{% include  '子板名'%}
+```python
+{% extends  '模板名'%}
+
+{% block content %}
+{% endblock %}
+
+
+{% include  '子板名'%}
 ```
 
 ```python
