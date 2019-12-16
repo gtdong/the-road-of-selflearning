@@ -59,22 +59,26 @@ return handler()
 ### 伪静态
 ```python
 	url名带有.html后缀，看起来像是静态文件
-虚拟环境
+```
+### 虚拟环境
+```python
 	每个项目都可以有专门属于自己项目的开发环境
 Django2.0
 	django2.0中
 		path  第一个参数不支持正则 写什么就匹配什么
 		re_path 就等价于django1.0中的url
-jsonresponse
-	返回json格式的数据
-	json.dumps({'name':'矮跟'},ensure_ascii = False)
-	JsonResponse(dic,json_dumps_params={'ensure_ascii':False})
+```
 
-fbv与cbv
-	
+### jsonresponse
+```python
+返回json格式的数据
+json.dumps({'name':'矮跟'},ensure_ascii = False)
+JsonResponse(dic,json_dumps_params={'ensure_ascii':False})
+```
 
 
-
+### fbv与cbv
+```python
 模版语法传值
 	变量相关 {{}}
 	逻辑相关 {%%}
@@ -82,8 +86,6 @@ fbv与cbv
 	传值的时候 如果是函数或者是方法  会自动加括号调用 将函数或者方法的返回结果展示到前端
 	模板语法不支持给函数传参
 ```
-	
-	
 
 ### 过滤器及标签
 ```python
@@ -429,14 +431,9 @@ F与Q查询
 		1.新建一个任意名称的py文件
 		2.文件内 写类继承中间件的总类
 ```
-	
-	
-
 ### csrf跨站请求伪造
 	钓鱼网站
-
 ### auth模块  
-
 ### BBS表设计
 
 
