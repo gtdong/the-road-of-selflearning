@@ -1,29 +1,29 @@
-django请求生命周期
-
+### django请求生命周期
+```python
 路由层:路由与视图函数对应关系，但是视图函数可以是真正的函数也可以是类 
-	FBV：基于函数的视图
-	CBV：基于类的视图
-		判断当前请求方式在不在默认的八个请求方式内
-		然后根据反射回去到字符串方法名所对应的对象中的方法
-		调用该方法返回相应结果
-		class MyLogin(View):
-			def get(self,request):
-				pass
-			def post(self,request):
-				pass
-		
-		obj = MyLogin()
-		handler = getattr(obj,request.method.lower())
-		return handler()
+    FBV：基于函数的视图
+    CBV：基于类的视图
+        判断当前请求方式在不在默认的八个请求方式内
+	然后根据反射回去到字符串方法名所对应的对象中的方法
+	调用该方法返回相应结果
+class MyLogin(View):
+	def get(self,request):
+		pass
+	def post(self,request):
+		pass
 
+obj = MyLogin()
+handler = getattr(obj,request.method.lower())
+return handler()
+```
+
+```python
 - 正则表达式
 	url(正则表达式,视图函数内存地址)
-	
-	
 - 无名分组
-	url(r'^edit/(\d+)/',views.edit_view)  会将\d+匹配到的数字当做位置参数传递给后面的视图函数
+	url(r'^edit/(\d+)/',views.edit_view)  #会将\d+ 匹配到的数字当做位置参数传递给后面的视图函数
 - 有名分组
-	url(r'^edit/(?P<edit_id>\d+)/',views.edit_view)  会将\d+匹配到的数字当做关键字参数传递给后面的视图函数
+	url(r'^edit/(?P<edit_id>\d+)/',views.edit_view)  #会将\d+ 匹配到的数字当做关键字参数传递给后面的视图函数
 - 反向解析
 	url(r'^edit/(?P<edit_id>\d+)/',views.edit_view，name='app01_add')
 	起别名千万不要重复
@@ -50,41 +50,45 @@ django请求生命周期
 	
 	每个app下都可以有自己的urls.py  static文件夹   templates模板文件
 	也就意味着 每个app都可以被独立的开发出来  而不需要讨论交互(******)
-	
+```	
 	
 	
 
 
 
-伪静态
+### 伪静态
+```python
 	url名带有.html后缀，看起来像是静态文件
-虚拟环境
+```
+### 虚拟环境
+```python
 	每个项目都可以有专门属于自己项目的开发环境
 Django2.0
 	django2.0中
 		path  第一个参数不支持正则 写什么就匹配什么
 		re_path 就等价于django1.0中的url
-jsonresponse
-	返回json格式的数据
-	json.dumps({'name':'矮跟'},ensure_ascii = False)
-	JsonResponse(dic,json_dumps_params={'ensure_ascii':False})
+```
 
-fbv与cbv
-	
+### jsonresponse
+```python
+返回json格式的数据
+json.dumps({'name':'矮跟'},ensure_ascii = False)
+JsonResponse(dic,json_dumps_params={'ensure_ascii':False})
+```
 
 
-
+### fbv与cbv
+```python
 模版语法传值
 	变量相关 {{}}
 	逻辑相关 {%%}
 	
 	传值的时候 如果是函数或者是方法  会自动加括号调用 将函数或者方法的返回结果展示到前端
 	模板语法不支持给函数传参
-	
-	
-	
+```
 
-过滤器及标签
+### 过滤器及标签
+```python
 	{{ 1|add:1}}
 	|date:"Y-m-d"
 	213210312|filesizeformat
@@ -108,17 +112,20 @@ fbv与cbv
 	{%empty%}
 		
 	{%endfor%}
+```
 	
-	
-模版的继承与导入
-	{% extends  '模板名'%}
-	
-	{% block content %}
-	{% endblock %}
-	
-	
-	{% include  '子板名'%}
+### 模版的继承与导入
+```python
+{% extends  '模板名'%}
 
+{% block content %}
+{% endblock %}
+
+
+{% include  '子板名'%}
+```
+
+```python
 单表操作
 	
 
@@ -246,15 +253,13 @@ F与Q查询
 			author = models.ForeignKey(to='Author')
 			create_time = ...
 			info = ...
-			
+```
+### 多对多关系建立
 
-
-
-多对多关系建立
-
-ajax简介
-	局部刷新
-	异步提交
+### ajax简介
+```
+局部刷新
+异步提交
 	
 	
 	
@@ -263,15 +268,9 @@ ajax简介
 	小实例
 		在页面上生成三个input框
 		前两个用户输入数字完毕之后点击提交按钮 自动算出和
-	
-
-
-
-
-
-
-
-ajax使用
+```
+### ajax使用
+```python
 	JSON.stringify({'name':'jason','password':'123'})  # 等价于 json.dumps()
 	JSON.parse()										# 等价于json.loads()
 	
@@ -308,31 +307,16 @@ ajax使用
 		
 	3.ajax发送文件
 		需要借助于内置对象FormData
+```
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-ajax发送文件
-
-自定义分页器使用
+### 自定义分页器使用
 
 
 
 
 
-forms组件
+### forms组件
+```python
 	注册页面
 		获取用户输入
 		判断用户输入是否合法
@@ -367,11 +351,13 @@ forms组件
 			
 	2.渲染标签
 		forms组件只会帮你渲染input框  form标签和submit提交按钮都需要你自己写
-		
+```	
 		
 	
 
-cookie，session
+### cookie，session
+
+```python
 	cookie:就是保存在浏览器上的键值对
 	session:就是保存在服务器的上的键值对
 	
@@ -406,11 +392,13 @@ cookie，session
 	你写一个装饰器完成该功能
 	拔高:用户登录完成后跳转到用户没有登录之前想要访问的那个页面
 	
-	
+```	
 	
 	
 
-django中间件
+### django中间件
+
+```python
 	django中间件就类似于是django的保安
 	消息来的时候和响应走的时候 都必须进过中间件
 	
@@ -442,27 +430,11 @@ django中间件
 	自定义中间件	
 		1.新建一个任意名称的py文件
 		2.文件内 写类继承中间件的总类
-		
-	
-	
-	
-
-csrf跨站请求伪造
+```
+### csrf跨站请求伪造
 	钓鱼网站
-	
-	
-	
-	
-
-
-
-
-auth模块  
-
-
-
-
-BBS表设计
+### auth模块  
+### BBS表设计
 
 
 
