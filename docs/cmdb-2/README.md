@@ -1,3 +1,4 @@
+```python
 from django.db import models
 
 class UserProfile(models.Model):
@@ -232,7 +233,7 @@ admin.site.register(models.NIC)
 admin.site.register(models.AssetRecord)
 admin.site.register(models.ErrorLog)
 
-
+```
 
 
 
