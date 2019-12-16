@@ -21,9 +21,9 @@ return handler()
 - 正则表达式
 	url(正则表达式,视图函数内存地址)
 - 无名分组
-	url(r'^edit/(\d+)/',views.edit_view)  会将\d+匹配到的数字当做位置参数传递给后面的视图函数
+	url(r'^edit/(\d+)/',views.edit_view)  #会将\d+ 匹配到的数字当做位置参数传递给后面的视图函数
 - 有名分组
-	url(r'^edit/(?P<edit_id>\d+)/',views.edit_view)  会将\d+匹配到的数字当做关键字参数传递给后面的视图函数
+	url(r'^edit/(?P<edit_id>\d+)/',views.edit_view)  #会将\d+ 匹配到的数字当做关键字参数传递给后面的视图函数
 - 反向解析
 	url(r'^edit/(?P<edit_id>\d+)/',views.edit_view，name='app01_add')
 	起别名千万不要重复
