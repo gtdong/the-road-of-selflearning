@@ -84,7 +84,8 @@ fbv与cbv
 	
 	
 
-过滤器及标签
+### 过滤器及标签
+```python
 	{{ 1|add:1}}
 	|date:"Y-m-d"
 	213210312|filesizeformat
@@ -108,9 +109,10 @@ fbv与cbv
 	{%empty%}
 		
 	{%endfor%}
+```python
 	
-	
-模版的继承与导入
+### 模版的继承与导入
+```
 	{% extends  '模板名'%}
 	
 	{% block content %}
@@ -118,7 +120,9 @@ fbv与cbv
 	
 	
 	{% include  '子板名'%}
+```
 
+```
 单表操作
 	
 
@@ -246,12 +250,13 @@ F与Q查询
 			author = models.ForeignKey(to='Author')
 			create_time = ...
 			info = ...
-
-多对多关系建立
+```
+### 多对多关系建立
 
 ### ajax简介
-	局部刷新
-	异步提交
+```
+局部刷新
+异步提交
 	
 	
 	
@@ -260,8 +265,9 @@ F与Q查询
 	小实例
 		在页面上生成三个input框
 		前两个用户输入数字完毕之后点击提交按钮 自动算出和
-
+```
 ### ajax使用
+```python
 	JSON.stringify({'name':'jason','password':'123'})  # 等价于 json.dumps()
 	JSON.parse()										# 等价于json.loads()
 	
@@ -298,6 +304,7 @@ F与Q查询
 		
 	3.ajax发送文件
 		需要借助于内置对象FormData
+```
 		
 ### 自定义分页器使用
 
@@ -306,6 +313,7 @@ F与Q查询
 
 
 ### forms组件
+```python
 	注册页面
 		获取用户输入
 		判断用户输入是否合法
@@ -340,11 +348,13 @@ F与Q查询
 			
 	2.渲染标签
 		forms组件只会帮你渲染input框  form标签和submit提交按钮都需要你自己写
-		
+```	
 		
 	
 
 ### cookie，session
+
+```python
 	cookie:就是保存在浏览器上的键值对
 	session:就是保存在服务器的上的键值对
 	
@@ -379,11 +389,13 @@ F与Q查询
 	你写一个装饰器完成该功能
 	拔高:用户登录完成后跳转到用户没有登录之前想要访问的那个页面
 	
-	
+```	
 	
 	
 
 ### django中间件
+
+```python
 	django中间件就类似于是django的保安
 	消息来的时候和响应走的时候 都必须进过中间件
 	
@@ -415,8 +427,7 @@ F与Q查询
 	自定义中间件	
 		1.新建一个任意名称的py文件
 		2.文件内 写类继承中间件的总类
-		
-	
+```
 	
 	
 
