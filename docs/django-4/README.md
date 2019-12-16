@@ -1,5 +1,5 @@
-django请求生命周期
-
+### django请求生命周期
+```python
 路由层:路由与视图函数对应关系，但是视图函数可以是真正的函数也可以是类 
 	FBV：基于函数的视图
 	CBV：基于类的视图
@@ -15,11 +15,11 @@ django请求生命周期
 		obj = MyLogin()
 		handler = getattr(obj,request.method.lower())
 		return handler()
+```
 
+```python
 - 正则表达式
 	url(正则表达式,视图函数内存地址)
-	
-	
 - 无名分组
 	url(r'^edit/(\d+)/',views.edit_view)  会将\d+匹配到的数字当做位置参数传递给后面的视图函数
 - 有名分组
@@ -50,13 +50,13 @@ django请求生命周期
 	
 	每个app下都可以有自己的urls.py  static文件夹   templates模板文件
 	也就意味着 每个app都可以被独立的开发出来  而不需要讨论交互(******)
-	
+```	
 	
 	
 
 
 
-伪静态
+### 伪静态
 	url名带有.html后缀，看起来像是静态文件
 虚拟环境
 	每个项目都可以有专门属于自己项目的开发环境
@@ -246,13 +246,10 @@ F与Q查询
 			author = models.ForeignKey(to='Author')
 			create_time = ...
 			info = ...
-			
-
-
 
 多对多关系建立
 
-ajax简介
+### ajax简介
 	局部刷新
 	异步提交
 	
@@ -263,15 +260,8 @@ ajax简介
 	小实例
 		在页面上生成三个input框
 		前两个用户输入数字完毕之后点击提交按钮 自动算出和
-	
 
-
-
-
-
-
-
-ajax使用
+### ajax使用
 	JSON.stringify({'name':'jason','password':'123'})  # 等价于 json.dumps()
 	JSON.parse()										# 等价于json.loads()
 	
@@ -309,30 +299,13 @@ ajax使用
 	3.ajax发送文件
 		需要借助于内置对象FormData
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-ajax发送文件
-
-自定义分页器使用
+### 自定义分页器使用
 
 
 
 
 
-forms组件
+### forms组件
 	注册页面
 		获取用户输入
 		判断用户输入是否合法
@@ -371,7 +344,7 @@ forms组件
 		
 	
 
-cookie，session
+### cookie，session
 	cookie:就是保存在浏览器上的键值对
 	session:就是保存在服务器的上的键值对
 	
@@ -410,7 +383,7 @@ cookie，session
 	
 	
 
-django中间件
+### django中间件
 	django中间件就类似于是django的保安
 	消息来的时候和响应走的时候 都必须进过中间件
 	
@@ -447,22 +420,12 @@ django中间件
 	
 	
 
-csrf跨站请求伪造
+### csrf跨站请求伪造
 	钓鱼网站
-	
-	
-	
-	
 
+### auth模块  
 
-
-
-auth模块  
-
-
-
-
-BBS表设计
+### BBS表设计
 
 
 
