@@ -24,3 +24,5 @@
 * [django第三天](docs/django-3)
 * [django第四天](docs/django-4)
 * [BBS](docs/bbs)
+* [CMDB第一天](docs/cmdb-1)
+* [CMDB第二天](docs/cmdb-2)
