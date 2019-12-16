@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<p>正经网站</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>自己的账户<input type="text" name="username"></p>
+    <p>
+        对方的账户<input type="text" name="tran_name"></p>
+    <p>转账的金额<input type="text" name="money"></p>
+    <input type="submit">
+</form>
+
+
+<button id="b1">提交</button>
+<script>
+    $('#b1').click(function () {
+        $.ajax({
+           url:'',
+           type:'post',
+           {#data:{'name':'jason','csrfmiddlewaretoken':$('input[name="csrfmiddlewaretoken"]').val()},#}
+           data:{'name':'jason','csrfmiddlewaretoken':'{{ csrf_token }}'},
+            success:function (data) {
+                alert(data)
+            }
+
+        })
+    })
+
+</script>
+
+
+</body>
+</html>

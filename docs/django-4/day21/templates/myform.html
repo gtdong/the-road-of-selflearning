@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+{#<p>第一种</p>#}
+{#{{ form_obj.as_p }}#}
+{#{{ form_obj.as_ul }}#}
+{#{{ form_obj.as_table }}#}
+
+{#<p>第二种</p>#}
+{#{{ form_obj.name.label }}{{ form_obj.name }}#}
+{#{{ form_obj.password.label }}{{ form_obj.password }}#}
+
+<p>第三种(推荐使用)</p>
+{#novalidate取消前端帮你做的校验#}
+<form action="" method="post" novalidate>
+    {% for foo in form_obj %}
+        <p>{{ foo.label }}{{ foo }}
+        {{ foo.errors.0 }}</p>
+
+    {% endfor %}
+    <input type="submit">
+</form>
+
+
+</body>
+</html>

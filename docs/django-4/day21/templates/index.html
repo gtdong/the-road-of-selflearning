@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<input type="text" id="i1"> + <input type="text" id="i2"> = <input type="text" id="i3">
+<button id="b1">计算</button>
+<input type="file" id="myfile">
+    <script>
+        // $('#i1').on('input',function () {
+             // console.log($(this).val())
+          //});
+        //$('#b1').click(function () {
+            //$.ajax({
+               // url:'',  // 控制数据的提交目的地  不写默认就是当前页面所在的url
+              //  type:'post',  // 控制提交方式
+              //  data:{'i1':$('#i1').val(),'i2':$('#i2').val()},  // 提交的数据
+              //  success:function (data) {  // 形参data接收的到就是异步提交返回的结果
+              //      $('#i3').val(data)
+              //  }
+           // })
+      //  })
+    // ajax发送json格式数据
+        //$('#b1').click(function () {
+         //   $.ajax({
+          //      url:'/json/',
+            //    type:'post',
+            //    data:JSON.stringify({'name':'jason','password':'123'}),  // 前端转json格式
+            //    contentType:'application/json',
+            //    success:function (data) {
+             //       alert(data)
+            //    }
+          //  })
+      //  })
+
+        // ajax发送文件
+        $('#b1').click(function () {
+            // 先生成一个内置对象
+            var formData = new FormData();
+            // 以添加键值对的方式 放formdata中添加数据
+            // 获取文件input框中对应为文件对象 固定语法  $('#myfile')[0].files[0]
+            // 注意 formdata不单单可以传文件 也可以传普通的键值对符合urlencoded编码格式的数据
+            formData.append('myfile',$('#myfile')[0].files[0]);
+            formData.append('username','jason');
+            $.ajax({
+                url:'/json/',
+                type:'post',
+                data:formData,
+                // ajax发送文件需要记住的参数
+                processData:false,  // 不要处理formdata格式数据
+                contentType:false,  // 不需要指定任何编码  因为formdata自带编码
+                success:function (data) {
+                    alert(data)
+                }
+            })
+        })
+</script>
+</body>
+</html>
